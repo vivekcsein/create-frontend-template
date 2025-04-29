@@ -25,6 +25,8 @@ A Full Stack Frontend Micro-Services Project
 
 <li> <i>Animations:</i> <b><a target="_blank"href="https://gsap.com/">GSAP</a></b></li>
 
+<li> <i>Framer Motion:</i> <b><a target="_blank"href="https://motion.dev/">Framer-Motions</a></b></li>
+
 <li> <i>State Management:</i> <b><a target="_blank"href="https://www.npmjs.com/package/@reduxjs/toolkit">Redux Toolkit</a></b></li>
 
 <li> <i>React-Forms:</i> <b><a target="_blank"href="https://www.npmjs.com/package/react-hook-form">React-hook-form</a></b></li>

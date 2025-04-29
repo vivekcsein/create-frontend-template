@@ -14,16 +14,6 @@ Initialize the node project, create package.json using this terminal command, an
 </p>
 
 <p>
-Initialize shadcn UI
-</p>
-
-<p>
-
-       bun x --bun shadcn@latest init
-
-</p>
-
-<p>
 Initialize Sass in our project
 </p>
 
@@ -56,6 +46,17 @@ Initialize Sass in our project
 
 <p>
 
-    bun add dotenv next-themes react-redux @reduxjs/toolkit
+    bun add dotenv next-themes react-redux @reduxjs/toolkit framer-motion gsap
+
+</p>
+
+
+<p>
+Initialize shadcn UI
+</p>
+
+<p>
+
+       bun x --bun shadcn@latest init
 
 </p>

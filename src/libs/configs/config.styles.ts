@@ -32,98 +32,45 @@ export const lora = Lora({
   variable: "--font-lora",
 });
 
-export const fav_colors = [
-  {
-    id: "fav_color01",
-    name: "gray",
-    code: "#64748b",
-  },
-  {
-    id: "fav_color02",
-    name: "blue",
-    code: "#4e4ee3",
-  },
-  {
-    id: "fav_color03",
-    name: "pink",
-    code: "#ff9ff3",
-  },
-  {
-    id: "fav_color04",
-    name: "purple",
-    code: "#b4238e",
-  },
-  {
-    id: "fav_color05",
-    name: "sky",
-    code: "#69e9f5",
-  },
-  {
-    id: "fav_color06",
-    name: "sun",
-    code: "#ff6700",
-  },
-  {
-    id: "fav_color07",
-    name: "gold",
-    code: "#ffdd00",
-  },
-  {
-    id: "fav_color08",
-    name: "green",
-    code: "#39aa69",
-  },
-];
-
 export const colors = [
   {
-    id: "color01",
-    name: "bgc",
+    id: "01",
+    name: "background",
     code: "#000000",
   },
   {
-    id: "color02",
+    id: "02",
     name: "primary",
     code: "#dd00ff",
   },
   {
-    id: "color03",
+    id: "03",
     name: "secondary",
     code: "#6600ff",
   },
   {
-    id: "color04",
-    name: "success",
+    id: "04",
+    name: "accent",
     code: "#10ff10",
   },
   {
-    id: "color05",
-    name: "danger",
+    id: "05",
+    name: "destructive",
     code: "#ff0000",
   },
   {
-    id: "color06",
-    name: "textDark",
-    code: "#eeaaaa",
-  },
-  {
-    id: "color07",
-    name: "textLight",
-    code: "#ffddff",
-  },
-  {
-    id: "color08",
-    name: "textMuted",
+    id: "06",
+    name: "muted",
     code: "#ededed",
   },
   {
-    id: "color09",
+    id: "07",
     name: "shadow",
     code: "#00000033",
   },
   {
-    id: "color10",
-    name: "shadowLight",
+    id: "08",
+    name: "border",
     code: "#ffccff",
   },
 ];
