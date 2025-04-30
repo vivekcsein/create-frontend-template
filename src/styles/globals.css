@@ -1,1 +1,129 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    /* overflow-x: hidden; */
+}
+
+/* Code for Firefox */
+::-moz-selection {
+    color: var(--secondary);
+    background: var(--secondary-foreground);
+}
+
+::selection {
+    color: var(--secondary);
+    background: var(--secondary-foreground);
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+h1 {
+    font-size: 3.25rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2.074rem;
+}
+
+h4 {
+    font-size: 1.728rem;
+}
+
+h5 {
+    font-size: 1.44rem;
+}
+
+h6 {
+    font-size: 1.2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.25;
+    font-weight: 700;
+    text-wrap: pretty;
+}
+
+p,
+div,
+span {
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+
+    p,
+    div,
+    span {
+        font-size: 0.8rem;
+    }
+}
+
+p.small {
+    font-size: 0.833rem;
+}
+
+div,
+span,
+p {
+    line-height: 1.6;
+    font-weight: 500;
+    text-wrap: pretty;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+input::placeholder {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
