@@ -9,6 +9,29 @@ const nextConfig: NextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+
+  //loading images from githubusercontent.com
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**.githubusercontent.com",
+      },
+    ],
+  },
+  //rewrite only works on client components
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: `https://www.${process.env.APP_HOST}.in/api/:path*`,
+      },
+      {
+        source: '/admin/:path*',
+        destination: `https://www.${process.env.APP_HOST}.in/api/admin/:path*`,
+      },
+    ]
+  },
 };
 
 export default nextConfig;

@@ -46,10 +46,9 @@ Initialize Sass in our project
 
 <p>
 
-    bun add dotenv next-themes react-redux @reduxjs/toolkit framer-motion gsap
+    bun add dotenv next-themes axios react-redux @reduxjs/toolkit framer-motion gsap
 
 </p>
-
 
 <p>
 Initialize shadcn UI

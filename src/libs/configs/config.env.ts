@@ -15,5 +15,10 @@ const _googleConfig = {
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID || "google-client-id",
 };
 
+const _envAPI_LAYOUT_DATA = {
+  rootLayoutAPI: process.env.ROOT_LAYOUT_API || "localhost:3000/api/rootLayout" as string,
+}
+
 export const envConfig = Object.freeze(_envConfig);
 export const googleConfig = Object.freeze(_googleConfig);
+export const envAPI_LAYOUT_DATA = Object.freeze(_envAPI_LAYOUT_DATA);
