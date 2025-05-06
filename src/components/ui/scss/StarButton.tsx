@@ -1,6 +1,6 @@
 "use client";
 import "@/styles/scss/components/starButton.scss"; // Import the SCSS file for styles
-import { Button } from "@/components/ui/shadcn/Button"; // Import the Button component
+import { Button } from "@/components/ui/shadcn/button"; // Import the Button component
 import { ButtonHTMLAttributes, useEffect, useState } from "react";
 import { Svg } from "@/components/ui/helpers/Svg"; // Import the Svg component
 import { starIcon } from "@/libs/configs/config.svg";
