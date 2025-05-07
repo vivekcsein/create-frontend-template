@@ -46,5 +46,6 @@ interface links {
     href: string;
 }
 
+type dropdownData = Array<links>;
 type productsData = Array<links>;
 type gameData = Array<links>;

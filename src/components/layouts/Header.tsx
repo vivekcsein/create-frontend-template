@@ -9,6 +9,8 @@ import {
   getrootLayoutDataStatus,
 } from "@/libs/redux/features/rootLayoutSlice";
 import Image from "next/image";
+import Navbar_desktop from "../ui/tailwindcss/Navbar/Navbar_desktop";
+import Link from "next/link";
 
 const Header = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -47,12 +49,25 @@ const Header = () => {
     } else {
       return (
         <header className="Header">
-          <Image
-            src={headerData.header_Logo.href}
-            alt={headerData.header_Logo.alt}
-            height={100}
-            width={200}
-          />
+          <div className="Header__desktop">
+            <Link className="Header__logo" href={headerData.header_Logo.href}>
+              {headerData.header_Logo.src ? (
+                <Image
+                  src={headerData.header_Logo.src}
+                  alt={headerData.header_Logo.alt}
+                  width={100}
+                  height={100}
+                />
+              ) : (
+                <div>Logo</div>
+              )}
+            </Link>
+
+            <Navbar_desktop
+              navbarData={headerData.navbar}
+              dropdownData={rootLayoutData.productsData}
+            />
+          </div>
         </header>
       );
     }

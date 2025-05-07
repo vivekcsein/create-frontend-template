@@ -2,7 +2,7 @@
   "rootLayoutData": {
     "HeaderData": {
       "header_Logo": {
-        "src": "logo.png",
+        "src": "/logo.png",
         "alt": "Logo",
         "href": "/"
       },
