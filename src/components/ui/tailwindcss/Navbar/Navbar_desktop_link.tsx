@@ -10,11 +10,11 @@ const Navbar_desktop_link = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Link href={href} className={` transition-colors relative group`}>
+    <Link
+      href={href}
+      className={` transition-colors cursor-pointer relative group text-background ${className}`}
+    >
       {children}
-      <span
-        className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-background  transition-all group-hover:w-full ${className ? className : ""} `}
-      />
     </Link>
   );
 };

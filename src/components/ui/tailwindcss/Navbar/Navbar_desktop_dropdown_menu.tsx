@@ -18,16 +18,16 @@ const Navbar_desktop_dropdown_menu = ({
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="border-0">
+          <NavigationMenuTrigger className="border-0 text-background">
             {dropdownLabel}
           </NavigationMenuTrigger>
-          <NavigationMenuContent className="flex  flex-col gap-5 bg-background py-2 px-4 ">
+          <NavigationMenuContent className="flex  flex-col gap-5 bg-background py-2 px-4">
             {dropdownData.map((item) => {
               return (
                 <Navbar_desktop_link
                   href={item.href}
                   key={item.id}
-                  className="bg-foreground"
+                  className="  coolLink "
                 >
                   {item.label}
                 </Navbar_desktop_link>

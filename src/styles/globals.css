@@ -77,7 +77,8 @@
 }
 
 .dark {
-    --background: #1b0140;
+    /* --background: #1b0140; */
+    --background: #111844;
     /* --background: oklch(0.141 0.005 285.823); */
     /* --foreground: oklch(0.985 0 0); */
     --foreground: #bcabd4;
@@ -94,7 +95,8 @@
     --muted-foreground: oklch(0.705 0.015 286.067);
     --accent: oklch(0.274 0.006 286.033);
     --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
+    --destructive: #FF2400;
+    /* --destructive: oklch(0.704 0.191 22.216); */
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.541 0.281 293.009);
@@ -301,6 +303,49 @@ input::placeholder {
     @apply bg-gradient-to-r from-primary to-secondary;
 }
 
-.font {
+.gradient.red {
+    @apply bg-gradient-to-r from-red-500 to-white;
+}
+
+.textFont {
     font-size: 14px;
+}
+
+.boxShadow {
+    box-shadow: 0 20px 50px rgb(23, 32, 90);
+    border: 2px solid #2a3cad;
+}
+
+
+.coolLink {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--foreground);
+    cursor: pointer;
+}
+
+.coolLink.darkMode {
+    color: var(--background);
+}
+
+.coolLink::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--foreground);
+    transition: width .3s;
+
+}
+
+.coolLink.darkMode::after {
+    background: var(--background);
+}
+
+.coolLink:hover::after {
+    width: 100%;
+}
+
+.background_blur {
+    background: rgba(255, 255, 255, .2);
 }

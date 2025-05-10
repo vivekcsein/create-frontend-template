@@ -12,12 +12,12 @@ const Navbar_desktop_auth = () => {
       <DialogTrigger asChild className="border-none cursor-pointer font">
         <Button
           variant="secondary"
-          className="bg-destructive hover:bg-background h-8"
+          className="bg-destructive text-white textFont hover:bg-background h-8  hover:text-foreground"
         >
           Signin
         </Button>
       </DialogTrigger>
-      <DialogContent className=" scale-75 p-0 gradient ">
+      <DialogContent className=" scale-75 p-0 ">
         <AuthPage />
       </DialogContent>
       <SheetTitle className="hidden"></SheetTitle>

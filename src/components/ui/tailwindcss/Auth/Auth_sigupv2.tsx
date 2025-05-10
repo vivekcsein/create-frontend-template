@@ -144,7 +144,7 @@ const Auth_sigupv2 = () => {
               )}
             />
 
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full cursor-pointer">
               Signup
             </Button>
           </div>

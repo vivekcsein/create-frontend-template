@@ -24,18 +24,18 @@ const Navbar_desktop = ({
             </li>
           ) : (
             <li key={link.id} className="center">
-              <Navbar_desktop_link href={link.href}>
-                {" "}
+              <Navbar_desktop_link
+                href={link.href}
+                className="coolLink darkMode"
+              >
                 {link.label}
               </Navbar_desktop_link>
             </li>
           )
         )}
+        <Themes />
         <li className="center ">
           <Navbar_desktop_auth />
-        </li>
-        <li className="center ">
-          <Themes />
         </li>
       </ul>
     </nav>

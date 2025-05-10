@@ -27,7 +27,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
-    "framer-motion": "^12.9.2",
     "gsap": "^3.12.7",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.507.0",
