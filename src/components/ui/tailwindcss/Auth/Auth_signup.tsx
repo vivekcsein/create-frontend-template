@@ -1,42 +1,55 @@
 "use client";
-
-import { ReactNode, useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/shadcn/button";
+import { CardContent } from "@/components/ui/shadcn/card";
 import { Input } from "@/components/ui/shadcn/input";
-import { Label } from "@/components/ui/shadcn/label";
-import { Separator } from "@/components/ui/shadcn/separator";
-import { AlertCircle } from "lucide-react";
+import { PasswordInput } from "@/components/ui/shadcn/password-input";
+import { useState } from "react";
 import { Alert, AlertDescription } from "@/components/ui/shadcn/alert";
+import { AlertCircle } from "lucide-react";
 
-const signUpSchema = z
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/shadcn/form";
+
+// Define validation schema using Zod
+const formSchema = z
   .object({
-    name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-    email: z.string().email({ message: "Please enter a valid email address" }),
+    name: z
+      .string()
+      .min(5, { message: "Name must be at least 5 characters long" }),
+    email: z.string().email({ message: "Invalid email address" }),
     password: z
       .string()
-      .min(6, { message: "Password must be at least 6 characters" }),
+      .min(6, { message: "Password must be at least 8 characters long" })
+      .regex(/[a-zA-Z0-9]/, { message: "Password must be alphanumeric" })
+      .regex(/^.{8,30}$/, { message: "Minimum 8 and maximum 30 characters." })
+      .regex(/(?=.*[A-Z])/, { message: "At least one uppercase character." })
+      .regex(/(?=.*[a-z])/, { message: "At least one lowercase character." })
+      .regex(/(?=.*\d)/, { message: "At least one digit." })
+      .regex(/[$&+,:;=?@#|'<>.^*()%!-]/, {
+        message: "At least one special character.",
+      }),
     confirmPassword: z.string(),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
     path: ["confirmPassword"],
+    message: "Passwords do not match",
   });
 
-type SignUpFormValues = z.infer<typeof signUpSchema>;
-
-const Auth_signup = ({ children }: { children?: ReactNode }) => {
+const Auth_signup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignUpFormValues>({
-    resolver: zodResolver(signUpSchema),
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -45,27 +58,16 @@ const Auth_signup = ({ children }: { children?: ReactNode }) => {
     },
   });
 
-  async function onSubmit(data: SignUpFormValues) {
-    setIsLoading(true);
-    setError(null);
-
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      // Here you would typically call your registration API
-      console.log("Sign up data:", data);
-
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // For demo purposes, let's pretend registration was successful
-      // In a real app, you would handle the response from your auth API
-    } catch (err) {
-      setError("Failed to create account. Please try again.");
-    } finally {
-      setIsLoading(false);
+      // Assuming an async registration function
+      console.log(values);
+    } catch (error) {
+      console.error("Form submission error", error);
     }
-  }
+  };
 
-  async function handleGoogleSignUp() {
+  const handleGoogleSignUp = async () => {
     setIsLoading(true);
     setError(null);
 
@@ -80,86 +82,112 @@ const Auth_signup = ({ children }: { children?: ReactNode }) => {
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   return (
-    <div className="space-y-4">
+    <CardContent>
       {error && (
         <Alert variant="destructive">
           <AlertCircle className="h-4 w-4" />
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       )}
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <div className="grid gap-4">
+            {/* Name Field */}
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem className="grid gap-2">
+                  <FormLabel htmlFor="name">Full Name</FormLabel>
+                  <FormControl>
+                    <Input
+                      id="name"
+                      placeholder="Your Full Name"
+                      type="text"
+                      disabled={isLoading}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="name">Name</Label>
-          <Input
-            id="name"
-            placeholder="John Doe"
-            {...register("name")}
-            disabled={isLoading}
-          />
-          {errors.name && (
-            <p className="text-sm text-red-500">{errors.name.message}</p>
-          )}
-        </div>
+            {/* Email Field */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="grid gap-2">
+                  <FormLabel htmlFor="email">Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      id="email"
+                      placeholder="johndoe@email.com"
+                      type="email"
+                      autoComplete="email"
+                      disabled={isLoading}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-        <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="name@example.com"
-            {...register("email")}
-            disabled={isLoading}
-          />
-          {errors.email && (
-            <p className="text-sm text-red-500">{errors.email.message}</p>
-          )}
-        </div>
+            {/* Password Field */}
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem className="grid gap-2">
+                  <FormLabel htmlFor="password">Password</FormLabel>
+                  <FormControl>
+                    <PasswordInput
+                      id="password"
+                      placeholder="******"
+                      autoComplete="new-password"
+                      disabled={isLoading}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-        <div className="space-y-2">
-          <Label htmlFor="password">Password</Label>
-          <Input
-            id="password"
-            type="password"
-            {...register("password")}
-            disabled={isLoading}
-          />
-          {errors.password && (
-            <p className="text-sm text-red-500">{errors.password.message}</p>
-          )}
-        </div>
+            {/* Confirm Password Field */}
+            <FormField
+              control={form.control}
+              name="confirmPassword"
+              render={({ field }) => (
+                <FormItem className="grid gap-2">
+                  <FormLabel htmlFor="confirmPassword">
+                    Confirm Password
+                  </FormLabel>
+                  <FormControl>
+                    <PasswordInput
+                      id="confirmPassword"
+                      placeholder="******"
+                      autoComplete="new-password"
+                      disabled={isLoading}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-        <div className="space-y-2">
-          <Label htmlFor="confirmPassword">Confirm Password</Label>
-          <Input
-            id="confirmPassword"
-            type="password"
-            {...register("confirmPassword")}
-            disabled={isLoading}
-          />
-          {errors.confirmPassword && (
-            <p className="text-sm text-red-500">
-              {errors.confirmPassword.message}
-            </p>
-          )}
-        </div>
-
-        <Button type="submit" className="w-full" disabled={isLoading}>
-          {isLoading ? "Creating account..." : "Create Account"}
-        </Button>
-      </form>
-
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <Separator className="w-full" />
-        </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-white px-2 text-gray-500">Or continue with</span>
-        </div>
-      </div>
+            <Button type="submit" className="w-full cursor-pointer">
+              Signup
+            </Button>
+          </div>
+        </form>
+      </Form>
 
       <Button
         variant="outline"
@@ -187,12 +215,10 @@ const Auth_signup = ({ children }: { children?: ReactNode }) => {
           />
           <path d="M1 1h22v22H1z" fill="none" />
         </svg>
-        Sign up with Google
+        Sign in with Google
       </Button>
-    </div>
+    </CardContent>
   );
 };
 
 export default Auth_signup;
-
-// new

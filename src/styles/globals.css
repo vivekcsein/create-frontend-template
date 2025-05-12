@@ -281,7 +281,7 @@ textarea {
     font-size: 1rem;
     box-sizing: border-box;
     text-decoration: none;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
 }
 
 input::placeholder {
@@ -289,7 +289,7 @@ input::placeholder {
     outline: none;
     font-size: 1rem;
     box-sizing: border-box;
-    padding: 0.5rem;
+    /* padding-left: 0.5rem; */
     text-decoration: none;
 }
 
@@ -348,4 +348,8 @@ input::placeholder {
 
 .background_blur {
     background: rgba(255, 255, 255, .2);
+}
+
+.svgFill {
+    fill: var(--background)
 }

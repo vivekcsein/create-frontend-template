@@ -2,13 +2,13 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/shadcn/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/shadcn/dropdown-menu";
+// import { Button } from "@/components/ui/shadcn/button";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/shadcn/dropdown-menu";
 
 import {
   NavigationMenu,
@@ -17,7 +17,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/shadcn/navigation-menu";
-import Navbar_desktop_link from "../ui/tailwindcss/Navbar/Navbar_desktop_link";
 
 const Themes = () => {
   const { setTheme } = useTheme();

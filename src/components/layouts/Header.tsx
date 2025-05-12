@@ -11,6 +11,14 @@ import {
 import Image from "next/image";
 import Navbar_desktop from "../ui/tailwindcss/Navbar/Navbar_desktop";
 import Link from "next/link";
+import { IuserInfo } from "@/types/users";
+
+const userInfo: IuserInfo = {
+  id: "123",
+  name: "vivek",
+  email: "user@gmail.com",
+  role: "DEFAULT",
+};
 
 const Header = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -65,6 +73,7 @@ const Header = () => {
 
             <Navbar_desktop
               navbarData={headerData.navbar}
+              userInfo={userInfo}
               dropdownData={rootLayoutData.productsData}
             />
           </div>

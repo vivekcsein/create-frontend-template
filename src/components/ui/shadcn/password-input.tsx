@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { EyeIcon, EyeOffIcon, Eye, EyeOff } from "lucide-react";
 
 import { Button } from "@/components/ui/shadcn/button";
 import { Input } from "@/components/ui/shadcn/input";
@@ -35,9 +35,9 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
         >
           {showPassword && !disabled ? (
-            <EyeIcon className="h-4 w-4" aria-hidden="true" />
+            <Eye className="h-5 w-5 svgFill" aria-hidden="true" />
           ) : (
-            <EyeOffIcon className="h-4 w-4" aria-hidden="true" />
+            <EyeOff className="h-5 w-5 svgFill" aria-hidden="true" />
           )}
           <span className="sr-only">
             {showPassword ? "Hide password" : "Show password"}

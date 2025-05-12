@@ -9,16 +9,17 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/shadcn/tabs";
-import Auth_sigupv2 from "../ui/tailwindcss/Auth/Auth_sigupv2";
-import Auth_signinv2 from "../ui/tailwindcss/Auth/Auth_signinv2";
+import Auth_signin from "../ui/tailwindcss/Auth/Auth_signin";
+import Auth_signup from "../ui/tailwindcss/Auth/Auth_signup";
+import Auth_forgetpassword from "../ui/tailwindcss/Auth/Auth_forgetpassword";
 
-type authpages = "signin" | "signup" | "forgerpassword";
+type authpages = "signin" | "signup" | "forgetpassword";
 
 const AuthPage = () => {
   const [activeTab, setActiveTab] = useState<authpages>("signin");
 
   return (
-    <Card className="w-full background_blur gradient">
+    <Card className="w-full background_blur gradient text-foreground">
       <CardHeader className="space-y-1 pb-2">
         <Tabs
           defaultValue="signin"
@@ -36,14 +37,17 @@ const AuthPage = () => {
           </TabsList>
           <TabsContent value="signin">
             <CardContent className="pt-4">
-              <Auth_signinv2>
-                {/* <TabsTrigger value="forgetpassword">Sign Up</TabsTrigger> */}
-              </Auth_signinv2>
+              <Auth_signin setActiveTab={setActiveTab}></Auth_signin>
             </CardContent>
           </TabsContent>
           <TabsContent value="signup">
             <CardContent className="pt-4">
-              <Auth_sigupv2 />
+              <Auth_signup />
+            </CardContent>
+          </TabsContent>
+          <TabsContent value="forgetpassword">
+            <CardContent className="pt-4">
+              <Auth_forgetpassword />
             </CardContent>
           </TabsContent>
         </Tabs>
