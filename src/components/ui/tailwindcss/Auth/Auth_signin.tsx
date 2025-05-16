@@ -1,15 +1,21 @@
 "use client";
+
 import * as z from "zod";
 import React, { ReactNode } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/libs/redux/store";
+// import { signinUser } from "@/libs/redux/features/userAuthSlice";
 import { Button } from "@/components/ui/shadcn/button";
 import { Input } from "@/components/ui/shadcn/input";
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/shadcn/alert";
 import { CardContent } from "../../shadcn/card";
 import { PasswordInput } from "../../shadcn/password-input";
+import { Checkbox } from "../../shadcn/checkbox";
+import { useRouter } from "next/navigation";
 import {
   Form,
   FormControl,
@@ -18,28 +24,37 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/shadcn/form";
-import { Checkbox } from "../../shadcn/checkbox";
+import WaveInput from "../Inputs/WaveInput";
 
 const signInSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email address" }),
+  email: z.string().email({ message: "Invalid email address" }),
   password: z
     .string()
-    .min(6, { message: "Password must be at least 6 characters" }),
+    .min(6, { message: "Password must be at least 8 characters long" })
+    .regex(/[a-zA-Z0-9]/, { message: "Password must be alphanumeric" })
+    .regex(/^.{8,30}$/, { message: "Minimum 8 and maximum 30 characters." })
+    .regex(/(?=.*[A-Z])/, { message: "At least one uppercase character." })
+    .regex(/(?=.*[a-z])/, { message: "At least one lowercase character." })
+    .regex(/(?=.*\d)/, { message: "At least one digit." })
+    .regex(/[$&+,:;=?@#|'<>.^*()%!-]/, {
+      message: "At least one special character.",
+    }),
   rememberPassword: z.boolean(),
 });
 
 type SignInFormValues = z.infer<typeof signInSchema>;
-type authpages = "signin" | "signup" | "forgetpassword";
 
 const Auth_signin = ({
   setActiveTab,
-  children,
 }: {
   setActiveTab: React.Dispatch<React.SetStateAction<authpages>>;
   children?: ReactNode;
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const dispatch: AppDispatch = useDispatch();
+  // const authStatus = useSelector((state: RootState) => state.userAuth.status);
+
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
@@ -51,41 +66,31 @@ const Auth_signin = ({
   });
 
   const onSubmit = async (data: SignInFormValues) => {
-    setIsLoading(true);
     setError(null);
 
     try {
-      // Here you would typically call your authentication API
-      console.log("Sign in data:", data);
-
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // For demo purposes, let's pretend authentication was successful
-      // In a real app, you would handle the response from your auth API
-    } catch (err) {
-      setError(
-        "Failed to sign in. Please check your credentials and try again."
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleGoogleSignIn = async () => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      // Here you would typically initiate Google OAuth flow
-      console.log("Signing in with Google");
-
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-    } catch (err) {
-      setError("Failed to sign in with Google. Please try again.");
-    } finally {
-      setIsLoading(false);
+      // Dispatch the signinUser thunk
+      // await dispatch(
+      //   signinUser({
+      //     email: data.email,
+      //     password: data.password,
+      //     rememberme: data.rememberPassword,
+      //   })
+      // )
+      //   .unwrap()
+      //   .then((res) => {
+      //     // console.log(res);
+      //     if (res.status === "201") {
+      //       console.log("Login successful");
+      //     }
+      //   })
+      //   .finally(() => {
+      //     // Handle successful login (e.g., redirect or show success message)
+      //     router.push("/");
+      //   });
+    } catch (err: any) {
+      // Handle errors from the thunk
+      setError(err.message || "Failed to sign in. Please try again.");
     }
   };
 
@@ -114,7 +119,7 @@ const Auth_signin = ({
                       placeholder="user@email.com"
                       type="email"
                       autoComplete="email"
-                      disabled={isLoading}
+                      // disabled={authStatus === "loading"}
                       {...field}
                     />
                   </FormControl>
@@ -134,8 +139,8 @@ const Auth_signin = ({
                     <PasswordInput
                       id="password"
                       placeholder="******"
-                      autoComplete="new-password"
-                      disabled={isLoading}
+                      autoComplete="current-password"
+                      // disabled={authStatus === "loading"}
                       {...field}
                     />
                   </FormControl>
@@ -144,7 +149,7 @@ const Auth_signin = ({
               )}
             />
 
-            {/* password remember button */}
+            {/* Remember Password Checkbox */}
             <FormField
               control={form.control}
               name="rememberPassword"
@@ -176,8 +181,12 @@ const Auth_signin = ({
               )}
             />
 
-            <Button type="submit" className="w-full cursor-pointer">
-              Signin
+            <Button
+              type="submit"
+              className="w-full cursor-pointer"
+              // disabled={authStatus === "loading"}
+            >
+              {/* {authStatus === "loading" ? <WaveInput /> : "sign in"} */}
             </Button>
           </div>
         </form>

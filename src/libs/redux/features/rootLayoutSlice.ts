@@ -58,7 +58,7 @@ const rootLayoutSlice = createSlice({
         getProductsData: (state, action) => {
             if (action.payload) {
                 state.rootLayoutData = action.payload;
-                state.rootLayoutData = initialState.rootLayoutData;
+                state.productsData = initialState.productsData;
             }
         },
         getHeaderDataError: (state, action) => {
@@ -96,5 +96,7 @@ export const getrootLayout = (state: RootState) => state.rootLayout;
 export const getrootLayoutData = (state: RootState) => state.rootLayout.rootLayoutData;
 export const getrootLayoutDataStatus = (state: RootState) => state.rootLayout.status;
 export const getHeaderDataError = (state: RootState) => state.rootLayout.error;
+
+
 
 export default rootLayoutSlice.reducer;

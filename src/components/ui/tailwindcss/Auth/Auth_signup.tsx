@@ -126,7 +126,7 @@ const Auth_signup = () => {
                   <FormControl>
                     <Input
                       id="email"
-                      placeholder="johndoe@email.com"
+                      placeholder="user@email.com"
                       type="email"
                       autoComplete="email"
                       disabled={isLoading}
@@ -192,7 +192,7 @@ const Auth_signup = () => {
       <Button
         variant="outline"
         type="button"
-        className="w-full"
+        className="w-full mt-4 cursor-pointer"
         onClick={handleGoogleSignUp}
         disabled={isLoading}
       >

@@ -1,19 +1,20 @@
 "use client";
 import React from "react";
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/shadcn/card";
+import Auth_signin from "../ui/tailwindcss/Auth/Auth_signin";
+import Auth_signup from "../ui/tailwindcss/Auth/Auth_signup";
+import Auth_forgetpassword from "../ui/tailwindcss/Auth/Auth_forgetpassword";
+
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/components/ui/shadcn/tabs";
-import Auth_signin from "../ui/tailwindcss/Auth/Auth_signin";
-import Auth_signup from "../ui/tailwindcss/Auth/Auth_signup";
-import Auth_forgetpassword from "../ui/tailwindcss/Auth/Auth_forgetpassword";
+import Auth_signupOtp from "../ui/tailwindcss/Auth/Auth_signupOtp";
 
-type authpages = "signin" | "signup" | "forgetpassword";
+// type authpages = "signin" | "signup" | "forgetpassword";
 
 const AuthPage = () => {
   const [activeTab, setActiveTab] = useState<authpages>("signin");
@@ -31,7 +32,7 @@ const AuthPage = () => {
             <TabsTrigger value="signin" className="cursor-pointer ">
               Sign In
             </TabsTrigger>
-            <TabsTrigger value="signup" className="cursor-pointer gradient red">
+            <TabsTrigger value="signup" className="cursor-pointer">
               Sign Up
             </TabsTrigger>
           </TabsList>
@@ -48,6 +49,11 @@ const AuthPage = () => {
           <TabsContent value="forgetpassword">
             <CardContent className="pt-4">
               <Auth_forgetpassword />
+            </CardContent>
+          </TabsContent>
+          <TabsContent value="signupOtp">
+            <CardContent className="pt-4">
+              <Auth_signupOtp />
             </CardContent>
           </TabsContent>
         </Tabs>

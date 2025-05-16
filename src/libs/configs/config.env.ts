@@ -4,10 +4,20 @@ config();
 const _envConfig = {
   APP_NAME: process.env.APP_NAME || "Create-Frontend-Template",
   APP_VERSION: process.env.APP_VERSION || "1.0.0",
-  APP_PORT: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
   APP_HOST: process.env.APP_HOST || "localhost",
+  APP_PORT: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
   APP_ENV: process.env.APP_ENV || "development",
 };
+
+const _envBackendAPI = {
+  APP_BACKEND: process.env.APP_BACKEND || "127.0.0.1:7164",
+  APP_BACKEND_API_URL: process.env.APP_BACKEND_API_URL || "http://127.0.0.1:7164"
+}
+
+const _envFrontendHost = {
+  APP_FRONTEND: process.env.APP_FRONTEND || "127.0.0.1:3000",
+  APP_FRONTEND_UI_URL: process.env.APP_FRONTEND_UI_URL || "http://127.0.0.1:3000"
+}
 
 const _googleConfig = {
   GOOGLE_VERIFICATION:
@@ -20,5 +30,7 @@ const _envAPI_LAYOUT_API = {
 }
 
 export const envConfig = Object.freeze(_envConfig);
+export const envBackendAPI = Object.freeze(_envBackendAPI);
+export const envFrontendHost = Object.freeze(_envFrontendHost);
 export const googleConfig = Object.freeze(_googleConfig);
 export const envAPI_LAYOUT_API = Object.freeze(_envAPI_LAYOUT_API);
