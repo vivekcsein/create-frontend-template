@@ -18,11 +18,12 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/shadcn/form";
+import WaveInput from "../Inputs/WaveInput";
 
 // Define validation schema using Zod
 const formSchema = z
   .object({
-    name: z
+    fullname: z
       .string()
       .min(5, { message: "Name must be at least 5 characters long" }),
     email: z.string().email({ message: "Invalid email address" }),
@@ -51,7 +52,7 @@ const Auth_signup = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      fullname: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -98,13 +99,13 @@ const Auth_signup = () => {
             {/* Name Field */}
             <FormField
               control={form.control}
-              name="name"
+              name="fullname"
               render={({ field }) => (
                 <FormItem className="grid gap-2">
-                  <FormLabel htmlFor="name">Full Name</FormLabel>
+                  <FormLabel htmlFor="fullname">Full Name</FormLabel>
                   <FormControl>
                     <Input
-                      id="name"
+                      id="fullname"
                       placeholder="Your Full Name"
                       type="text"
                       disabled={isLoading}
@@ -182,8 +183,12 @@ const Auth_signup = () => {
               )}
             />
 
-            <Button type="submit" className="w-full cursor-pointer">
-              Signup
+            <Button
+              type="submit"
+              className="w-full cursor-pointer"
+              disabled={isLoading}
+            >
+              {isLoading ? <WaveInput /> : "Signup"}
             </Button>
           </div>
         </form>

@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/libs/redux/store";
-// import { signinUser } from "@/libs/redux/features/userAuthSlice";
 import { Button } from "@/components/ui/shadcn/button";
 import { Input } from "@/components/ui/shadcn/input";
 import { AlertCircle } from "lucide-react";
@@ -16,6 +15,8 @@ import { CardContent } from "../../shadcn/card";
 import { PasswordInput } from "../../shadcn/password-input";
 import { Checkbox } from "../../shadcn/checkbox";
 import { useRouter } from "next/navigation";
+import WaveInput from "../Inputs/WaveInput";
+// import { signinUser } from "@/libs/redux/features/userAuthSlice";
 import {
   Form,
   FormControl,
@@ -24,7 +25,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/shadcn/form";
-import WaveInput from "../Inputs/WaveInput";
 
 const signInSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
@@ -53,7 +53,7 @@ const Auth_signin = ({
   const [error, setError] = useState<string | null>(null);
   const dispatch: AppDispatch = useDispatch();
   // const authStatus = useSelector((state: RootState) => state.userAuth.status);
-
+  let authStatus: authstatus = "loading";
   const router = useRouter();
 
   const form = useForm<z.infer<typeof signInSchema>>({
@@ -119,7 +119,7 @@ const Auth_signin = ({
                       placeholder="user@email.com"
                       type="email"
                       autoComplete="email"
-                      // disabled={authStatus === "loading"}
+                      disabled={authStatus === "loading"}
                       {...field}
                     />
                   </FormControl>
@@ -140,7 +140,7 @@ const Auth_signin = ({
                       id="password"
                       placeholder="******"
                       autoComplete="current-password"
-                      // disabled={authStatus === "loading"}
+                      disabled={authStatus === "loading"}
                       {...field}
                     />
                   </FormControl>
@@ -184,9 +184,9 @@ const Auth_signin = ({
             <Button
               type="submit"
               className="w-full cursor-pointer"
-              // disabled={authStatus === "loading"}
+              disabled={authStatus === "loading"}
             >
-              {/* {authStatus === "loading" ? <WaveInput /> : "sign in"} */}
+              {authStatus === "loading" ? <WaveInput /> : "sign in"}
             </Button>
           </div>
         </form>

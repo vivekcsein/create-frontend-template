@@ -16,6 +16,13 @@ import { IuserInfo } from "@/types/users";
 const Header = () => {
   const dispatch: AppDispatch = useDispatch();
   // Fetching root layout data from Redux store
+
+  // const isAuthenticated = useSelector(
+  //   (state: RootState) => state.userAuth.isAuthenticated
+  // );
+
+  const isAuthenticated = false;
+
   const rootLayoutData = useSelector((state: RootState) =>
     getrootLayoutData(state)
   );
@@ -66,6 +73,7 @@ const Header = () => {
 
             <Navbar_desktop
               navbarData={headerData.navbar}
+              isAuthenticated={isAuthenticated}
               dropdownData={rootLayoutData.productsData}
             />
           </div>
