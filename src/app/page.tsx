@@ -1,9 +1,9 @@
-import StarButton from "@/components/ui/scss/StarButton";
+import CardGamev1 from "@/components/context/games/CardGamev1";
 
 export default function Home() {
   return (
     <main className="w-full bg-background h-lvh center">
-      <StarButton text="click me here" />
+      <CardGamev1 />
     </main>
   );
 }

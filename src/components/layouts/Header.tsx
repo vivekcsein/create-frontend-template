@@ -13,13 +13,6 @@ import Navbar_desktop from "../ui/tailwindcss/Navbar/Navbar_desktop";
 import Link from "next/link";
 import { IuserInfo } from "@/types/users";
 
-const userInfo: IuserInfo = {
-  id: "123",
-  name: "vivek",
-  email: "user@gmail.com",
-  role: "DEFAULT",
-};
-
 const Header = () => {
   const dispatch: AppDispatch = useDispatch();
   // Fetching root layout data from Redux store
@@ -73,7 +66,6 @@ const Header = () => {
 
             <Navbar_desktop
               navbarData={headerData.navbar}
-              userInfo={userInfo}
               dropdownData={rootLayoutData.productsData}
             />
           </div>
