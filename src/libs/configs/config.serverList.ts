@@ -14,3 +14,27 @@ export const allowedOrigins = [
     `http://${envFrontendHost.APP_FRONTEND}`,
     `http://localhost:${envConfig.APP_PORT}`,
 ];
+
+const _AuthServerList = {
+
+    baseURL: `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/`,
+
+    signIn: [
+        `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/signin`,
+        `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/fetch-user`,
+        `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/verify-user-refresh-token`,
+        `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/verify-user-access-token`
+    ],
+    signUp: [
+        `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/signup`,
+        `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/createuser`,
+    ],
+    forgetPassword: [
+        `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/forget-password`,
+        `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/verify-reset-password-otp`,
+        `http://${envBackendAPI.APP_BACKEND}/api/v1/auth/update-password`,
+
+    ]
+}
+
+export const AuthServerList = Object.freeze(_AuthServerList);

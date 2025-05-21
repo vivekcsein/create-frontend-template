@@ -16,6 +16,7 @@ import { PasswordInput } from "../../shadcn/password-input";
 import { Checkbox } from "../../shadcn/checkbox";
 import { useRouter } from "next/navigation";
 import WaveInput from "../Inputs/WaveInput";
+import { signIn } from "@/libs/redux/features/authSlice";
 // import { signinUser } from "@/libs/redux/features/userAuthSlice";
 import {
   Form,
@@ -52,8 +53,14 @@ const Auth_signin = ({
 }) => {
   const [error, setError] = useState<string | null>(null);
   const dispatch: AppDispatch = useDispatch();
-  // const authStatus = useSelector((state: RootState) => state.userAuth.status);
-  let authStatus: authstatus = "loading";
+  const authStatus = useSelector((state: RootState) =>
+    state.auth.loading
+      ? "loading"
+      : state.auth.isAuthenticated
+        ? "authenticated"
+        : "idle"
+  );
+
   const router = useRouter();
 
   const form = useForm<z.infer<typeof signInSchema>>({
@@ -67,29 +74,20 @@ const Auth_signin = ({
 
   const onSubmit = async (data: SignInFormValues) => {
     setError(null);
-
     try {
-      // Dispatch the signinUser thunk
-      // await dispatch(
-      //   signinUser({
-      //     email: data.email,
-      //     password: data.password,
-      //     rememberme: data.rememberPassword,
-      //   })
-      // )
-      //   .unwrap()
-      //   .then((res) => {
-      //     // console.log(res);
-      //     if (res.status === "201") {
-      //       console.log("Login successful");
-      //     }
-      //   })
-      //   .finally(() => {
-      //     // Handle successful login (e.g., redirect or show success message)
-      //     router.push("/");
-      //   });
+      const resultAction = await dispatch(
+        signIn({ email: data.email, password: data.password })
+      );
+      if (signIn.fulfilled.match(resultAction)) {
+        // Redirect or update UI on successful sign in
+        router.push("/dashboard"); // Change to your protected route
+      } else {
+        setError(
+          (resultAction.payload as string) ||
+            "Failed to sign in. Please try again."
+        );
+      }
     } catch (err: any) {
-      // Handle errors from the thunk
       setError(err.message || "Failed to sign in. Please try again.");
     }
   };

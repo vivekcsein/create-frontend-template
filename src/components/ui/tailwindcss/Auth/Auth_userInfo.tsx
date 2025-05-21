@@ -7,11 +7,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/shadcn/navigation-menu";
+import Auth_signOut from "./Auth_signOut";
+import Link from "next/link";
 
 const Auth_userInfo = () => {
   return (
     <div>
-      <NavigationMenu className="center">
+      <NavigationMenu className="">
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="border-0" icon={false}>
@@ -21,23 +23,13 @@ const Auth_userInfo = () => {
               </Avatar>
             </NavigationMenuTrigger>
             <ul>
-              <NavigationMenuContent className="flex  flex-col gap-5 bg-background py-2 px-4 text-white">
-                <NavigationMenuItem
-                  onClick={(e) => {
-                    e.preventDefault();
-                  }}
-                  className="coolLink"
-                >
-                  Settings
+              <NavigationMenuContent className="flex flex-col gap-5 bg-background py-2 px-4 text-white">
+                <NavigationMenuItem>
+                  <Link className="coolLink" href={"./dashboard"}>
+                    Dashboard
+                  </Link>
                 </NavigationMenuItem>
-                <NavigationMenuItem
-                  onClick={(e) => {
-                    e.preventDefault();
-                  }}
-                  className="coolLink"
-                >
-                  Logout
-                </NavigationMenuItem>
+                <Auth_signOut />
               </NavigationMenuContent>
             </ul>
           </NavigationMenuItem>

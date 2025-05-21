@@ -10,8 +10,8 @@ export type IUserProfileType =
 
 export interface IUser {
     id: string;
-    name: string;
     email: string;
+    fullname: string;
     password: string;
     createdAt: Date;
     updatedAt: Date;
@@ -20,7 +20,7 @@ export interface IUser {
 
 export interface IuserInfo {
     id: string;
-    name: string;
+    fullname: string;
     email: string;
     role?: IUserProfileType;
 }

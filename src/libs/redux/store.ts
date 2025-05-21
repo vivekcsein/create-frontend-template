@@ -2,12 +2,15 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import rootLayoutReducer from "./features/rootLayoutSlice";
+import authReducer from "./features/authSlice";
 
 export const makeStore = () => {
     return configureStore({
         reducer: {
             // Add your reducers here
             rootLayout: rootLayoutReducer,
+            auth: authReducer,
+
         },
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware({

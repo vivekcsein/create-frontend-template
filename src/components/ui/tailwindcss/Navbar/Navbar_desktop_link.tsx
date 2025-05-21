@@ -12,7 +12,7 @@ const Navbar_desktop_link = ({
   return (
     <Link
       href={href}
-      className={` transition-colors cursor-pointer relative group text-background ${className}`}
+      className={` transition-colors cursor-pointer relative group  ${className}`}
     >
       {children}
     </Link>

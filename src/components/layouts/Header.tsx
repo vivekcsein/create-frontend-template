@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import "@/styles/scss/components/Header.scss";
 import { AppDispatch, RootState } from "@/libs/redux/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,17 +11,17 @@ import {
 import Image from "next/image";
 import Navbar_desktop from "../ui/tailwindcss/Navbar/Navbar_desktop";
 import Link from "next/link";
-import { IuserInfo } from "@/types/users";
+import { fetchUser } from "@/libs/redux/features/authSlice";
+import Header_animation from "../animations/layout_animations/Header_animation";
 
 const Header = () => {
   const dispatch: AppDispatch = useDispatch();
+  const headerRef = useRef<HTMLDivElement>(null);
   // Fetching root layout data from Redux store
 
-  // const isAuthenticated = useSelector(
-  //   (state: RootState) => state.userAuth.isAuthenticated
-  // );
-
-  const isAuthenticated = false;
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  );
 
   const rootLayoutData = useSelector((state: RootState) =>
     getrootLayoutData(state)
@@ -34,6 +34,12 @@ const Header = () => {
     if (!data) return null;
     return data ? data.HeaderData : null;
   });
+
+  useLayoutEffect(() => {
+    if (!isAuthenticated) {
+      dispatch(fetchUser());
+    }
+  }, [isAuthenticated]);
 
   useEffect(() => {
     if (rootLayoutStatus === "idle") {
@@ -56,7 +62,7 @@ const Header = () => {
       return <p>No header data available.</p>;
     } else {
       return (
-        <header className="Header">
+        <header className="Header" ref={headerRef}>
           <div className="Header__desktop">
             <Link className="Header__logo" href={headerData.header_Logo.href}>
               {headerData.header_Logo.src ? (
@@ -77,6 +83,8 @@ const Header = () => {
               dropdownData={rootLayoutData.productsData}
             />
           </div>
+
+          <Header_animation refObject={headerRef}></Header_animation>
         </header>
       );
     }
