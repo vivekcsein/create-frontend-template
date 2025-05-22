@@ -1,0 +1,54 @@
+.submitBtn {
+  width: 100%;
+  height: 7vh;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    var(--primary),
+    var(--secondary),
+    var(--primary),
+    var(--primary),
+    var(--secondary),
+    var(--primary)
+  );
+  background-size: 250%;
+  background-position: left;
+  color: var(--foreground);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
+  overflow: hidden;
+}
+
+.submitBtn::before {
+  position: absolute;
+  content: attr(data-content); // Use data-content for dynamic text
+  color: var(--secondary-foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97%;
+  height: 90%;
+  border-radius: 8px;
+  transition-duration: 1s;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-size: 200%;
+}
+
+.submitBtn:hover {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.submitBtn:hover::before {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.submitBtn:active {
+  transform: scale(0.95);
+}

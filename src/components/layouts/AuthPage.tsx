@@ -13,6 +13,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/shadcn/tabs";
 import Auth_signupOtp from "../ui/tailwindcss/Auth/Auth_signupOtp";
+import Border from "./Border";
 
 // type authpages = "signin" | "signup" | "forgetpassword";
 
@@ -20,45 +21,51 @@ const AuthPage = () => {
   const [activeTab, setActiveTab] = useState<authpages>("signin");
 
   return (
-    <Card className="w-full background_blur gradient text-foreground">
-      <CardHeader className="space-y-1 pb-2">
-        <Tabs
-          defaultValue="signin"
-          value={activeTab}
-          onValueChange={(value: string) => setActiveTab(value as authpages)}
-          className="w-full"
-        >
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="signin" className="cursor-pointer ">
-              Sign In
-            </TabsTrigger>
-            <TabsTrigger value="signup" className="cursor-pointer">
-              Sign Up
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="signin">
-            <CardContent className="pt-4">
-              <Auth_signin setActiveTab={setActiveTab}></Auth_signin>
-            </CardContent>
-          </TabsContent>
-          <TabsContent value="signup">
-            <CardContent className="pt-4">
-              <Auth_signup />
-            </CardContent>
-          </TabsContent>
-          <TabsContent value="forgetpassword">
-            <CardContent className="pt-4">
-              <Auth_forgetpassword />
-            </CardContent>
-          </TabsContent>
-          <TabsContent value="signupOtp">
-            <CardContent className="pt-4">
-              <Auth_signupOtp />
-            </CardContent>
-          </TabsContent>
-        </Tabs>
-      </CardHeader>
-    </Card>
+    <Border
+      variant="offset-bottom-right"
+      size="medium"
+      className="shadow-foreground"
+    >
+      <Card className="  gradient text-foreground  border-0 rounded-[5px]">
+        <CardHeader className="space-y-1 pb-2">
+          <Tabs
+            defaultValue="signin"
+            value={activeTab}
+            onValueChange={(value: string) => setActiveTab(value as authpages)}
+            className="w-full"
+          >
+            <TabsList className="grid w-full grid-cols-2 ">
+              <TabsTrigger value="signin" className="cursor-pointer">
+                Sign In
+              </TabsTrigger>
+              <TabsTrigger value="signup" className="cursor-pointer">
+                Sign Up
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="signin">
+              <CardContent className="pt-4">
+                <Auth_signin setActiveTab={setActiveTab}></Auth_signin>
+              </CardContent>
+            </TabsContent>
+            <TabsContent value="signup">
+              <CardContent className="pt-4">
+                <Auth_signup />
+              </CardContent>
+            </TabsContent>
+            <TabsContent value="forgetpassword">
+              <CardContent className="pt-4">
+                <Auth_forgetpassword />
+              </CardContent>
+            </TabsContent>
+            <TabsContent value="signupOtp">
+              <CardContent className="pt-4">
+                <Auth_signupOtp />
+              </CardContent>
+            </TabsContent>
+          </Tabs>
+        </CardHeader>
+      </Card>
+    </Border>
   );
 };
 

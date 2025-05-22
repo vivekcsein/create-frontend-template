@@ -9,6 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/shadcn/navigation-menu";
+import Border from "./Border";
 
 const Themes = () => {
   const { setTheme } = useTheme();
@@ -19,7 +20,7 @@ const Themes = () => {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="border-0" icon={false}>
             <div className="flex justify-center items-center">
-              <div className="relative h-8 w-8 rounded-full border-none text-background cursor-pointer">
+              <div className="relative h-8 w-8 rounded-full border-none cursor-pointer">
                 {/* Sun Icon */}
                 <Sun className="absolute inset-0 m-auto h-4 w-4 rotate-0 scale-100 transition-transform duration-300 dark:-rotate-90 dark:scale-0" />
                 {/* Moon Icon */}
@@ -28,25 +29,31 @@ const Themes = () => {
             </div>
           </NavigationMenuTrigger>
           <ul>
-            <NavigationMenuContent className="flex flex-col gap-5 bg-background py-2 px-4">
-              <NavigationMenuItem
-                onClick={() => setTheme("light")}
-                className="coolLink"
+            <NavigationMenuContent>
+              <Border
+                variant="offset-top-right"
+                size="small"
+                className="flex flex-col gap-5 bg-background py-2 px-4"
               >
-                Light
-              </NavigationMenuItem>
-              <NavigationMenuItem
-                onClick={() => setTheme("dark")}
-                className="coolLink"
-              >
-                Dark
-              </NavigationMenuItem>
-              <NavigationMenuItem
-                onClick={() => setTheme("system")}
-                className="coolLink"
-              >
-                System
-              </NavigationMenuItem>
+                <NavigationMenuItem
+                  onClick={() => setTheme("light")}
+                  className="coolLink"
+                >
+                  Light
+                </NavigationMenuItem>
+                <NavigationMenuItem
+                  onClick={() => setTheme("dark")}
+                  className="coolLink"
+                >
+                  Dark
+                </NavigationMenuItem>
+                <NavigationMenuItem
+                  onClick={() => setTheme("system")}
+                  className="coolLink"
+                >
+                  System
+                </NavigationMenuItem>
+              </Border>
             </NavigationMenuContent>
           </ul>
         </NavigationMenuItem>

@@ -27,10 +27,7 @@ const Navbar_desktop = ({
             </li>
           ) : (
             <li key={link.id} className="center">
-              <Navbar_desktop_link
-                href={link.href}
-                className="coolLink darkMode"
-              >
+              <Navbar_desktop_link href={link.href} className="coolLink">
                 {link.label}
               </Navbar_desktop_link>
             </li>

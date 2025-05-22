@@ -11,8 +11,8 @@ const Navbar_desktop_auth = () => {
     <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
       <DialogTrigger asChild className="border-none cursor-pointer font">
         <Button
-          variant="secondary"
-          className="bg-destructive text-white textFont hover:bg-background h-8  hover:text-foreground"
+          variant="signin"
+          className="textFont text-background dark:text-foreground  bg-destructive hover:bg-primary h-6 border-4 border-red-400 "
         >
           Signin
         </Button>

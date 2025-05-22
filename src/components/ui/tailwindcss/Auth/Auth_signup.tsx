@@ -185,10 +185,12 @@ const Auth_signup = () => {
 
             <Button
               type="submit"
+              variant={"submit"}
               className="w-full cursor-pointer"
+              data-content={isLoading ? "" : "signup"}
               disabled={isLoading}
             >
-              {isLoading ? <WaveInput /> : "Signup"}
+              {isLoading ? <WaveInput /> : ""}
             </Button>
           </div>
         </form>
