@@ -1,0 +1,99 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2023-10-01",
+  "productsList": [
+    {
+      "Category": "Men",
+      "productDetails": [
+        {
+          "uid": 1,
+          "name": "Classic White Shirt",
+          "description": "Premium cotton, slim fit, perfect for office or casual wear.",
+          "price": 29.99,
+          "rating": 4.5,
+          "image": "/images/men/white-shirt.jpg",
+          "details": {
+            "sizes": ["S", "M", "L", "XL"],
+            "colors": ["White"],
+            "material": "100% Cotton"
+          }
+        },
+        {
+          "uid": 2,
+          "name": "Blue Denim Jeans",
+          "description": "Stretchable, regular fit, durable denim for everyday use.",
+          "price": 49.99,
+          "rating": 4.7,
+          "image": "/images/men/denim-jeans.jpg",
+          "details": {
+            "sizes": ["30", "32", "34", "36"],
+            "colors": ["Blue"],
+            "material": "Denim"
+          }
+        }
+      ]
+    },
+    {
+      "Category": "Women",
+      "productDetails": [
+        {
+          "uid": 3,
+          "name": "Floral Summer Dress",
+          "description": "Lightweight, breathable fabric, perfect for summer outings.",
+          "price": 39.99,
+          "rating": 4.8,
+          "image": "/images/women/floral-dress.jpg",
+          "details": {
+            "sizes": ["XS", "S", "M", "L"],
+            "colors": ["Pink", "Yellow"],
+            "material": "Rayon"
+          }
+        },
+        {
+          "uid": 4,
+          "name": "Black Leggings",
+          "description": "High-waisted, stretchable, suitable for gym and casual wear.",
+          "price": 19.99,
+          "rating": 4.6,
+          "image": "/images/women/black-leggings.jpg",
+          "details": {
+            "sizes": ["S", "M", "L", "XL"],
+            "colors": ["Black"],
+            "material": "Polyester, Spandex"
+          }
+        }
+      ]
+    },
+    {
+      "Category": "Kids",
+      "productDetails": [
+        {
+          "uid": 5,
+          "name": "Boys' Graphic T-Shirt",
+          "description": "Fun prints, soft cotton, available in multiple colors.",
+          "price": 14.99,
+          "rating": 4.3,
+          "image": "/images/kids/boys-tshirt.jpg",
+          "details": {
+            "sizes": ["2-3Y", "4-5Y", "6-7Y"],
+            "colors": ["Red", "Blue", "Green"],
+            "material": "Cotton"
+          }
+        },
+        {
+          "uid": 6,
+          "name": "Girls' Denim Skirt",
+          "description": "Trendy, comfortable, easy to pair with any top.",
+          "price": 17.99,
+          "rating": 4.4,
+          "image": "",
+          "details": {
+            "sizes": ["2-3Y", "4-5Y", "6-7Y"],
+            "colors": ["Red", "Blue", "Green"],
+            "material": "Cotton"
+          }
+        }
+      ]
+    }
+  ]
+}

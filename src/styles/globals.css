@@ -344,3 +344,8 @@ input::placeholder {
 .offset-bottom-right {
     box-shadow: calc(1 * var(--border-size, 5px)) calc(1 * var(--border-size, 5px)) calc(2 * var(--border-size, 5px)) var(--border-color);
 }
+
+.rounded-custom-left {
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+}
