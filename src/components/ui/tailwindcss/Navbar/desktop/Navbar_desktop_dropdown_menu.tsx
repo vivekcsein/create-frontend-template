@@ -1,11 +1,11 @@
-import Navbar_desktop_link from "./Navbar_desktop_link";
+import Navbar_desktop_link from "../Navbar_desktop_link";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "../../shadcn/navigation-menu";
+} from "../../../shadcn/navigation-menu";
 import Border from "@/components/layouts/Border";
 
 const Navbar_desktop_dropdown_menu = ({

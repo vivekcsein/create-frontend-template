@@ -13,12 +13,15 @@ import Navbar_desktop from "../ui/tailwindcss/Navbar/Navbar_desktop";
 import Link from "next/link";
 import { fetchUser } from "@/libs/redux/features/authSlice";
 import Header_animation from "../animations/layout_animations/Header_animation";
+import { useIsMobile } from "@/hooks/use-mobile";
+import Navbar_desktop_logo from "../ui/tailwindcss/Navbar/desktop/Navbar_desktop_logo";
+import Navbar_phone from "../ui/tailwindcss/Navbar/Navbar_phone";
 
 const Header = () => {
   const dispatch: AppDispatch = useDispatch();
   const headerRef = useRef<HTMLDivElement>(null);
   // Fetching root layout data from Redux store
-
+  const isMobile = useIsMobile();
   const isAuthenticated = useSelector(
     (state: RootState) => state.auth.isAuthenticated
   );
@@ -63,28 +66,32 @@ const Header = () => {
     } else {
       return (
         <header className="Header" ref={headerRef}>
-          <div className="Header__desktop">
-            <Link className="Header__logo" href={headerData.header_Logo.href}>
-              {headerData.header_Logo.src ? (
-                <Image
-                  src={headerData.header_Logo.src}
-                  alt={headerData.header_Logo.alt}
-                  width={100}
-                  height={100}
-                />
-              ) : (
-                <div>Logo</div>
-              )}
-            </Link>
+          {isMobile ? (
+            // Phone version
+            // Phone version
+            // Phone version
+            <div className="Header__phone">
+              <Navbar_phone />
+            </div>
+          ) : (
+            // Desktop version
+            // Desktop version
+            // Desktop version
+            <div className="Header__desktop">
+              <Navbar_desktop_logo
+                // src={headerData.header_Logo.src}
+                alt={headerData.header_Logo.alt}
+                href={headerData.header_Logo.href}
+              />
 
-            <Navbar_desktop
-              navbarData={headerData.navbar}
-              isAuthenticated={isAuthenticated}
-              dropdownData={rootLayoutData.productsData}
-            />
-          </div>
-
-          <Header_animation refObject={headerRef}></Header_animation>
+              <Navbar_desktop
+                navbarData={headerData.navbar}
+                isAuthenticated={isAuthenticated}
+                dropdownData={rootLayoutData.productsData}
+              />
+              <Header_animation refObject={headerRef}></Header_animation>
+            </div>
+          )}
         </header>
       );
     }
