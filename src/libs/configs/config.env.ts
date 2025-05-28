@@ -11,12 +11,12 @@ const _envConfig = {
 
 const _envBackendAPI = {
   APP_BACKEND: process.env.APP_BACKEND || "localhost:7164",
-  APP_BACKEND_API_URL: process.env.APP_BACKEND_API_URL || "http://localhost:7164"
+  APP_BACKEND_API_URL: process.env.APP_BACKEND_API_URL || "http://localhost:7164/api",
 }
 
 const _envFrontendHost = {
   APP_FRONTEND: process.env.APP_FRONTEND || "http://localhost:3000",
-  APP_FRONTEND_UI_URL: process.env.APP_FRONTEND_UI_URL || "http://localhost:3000"
+  APP_FRONTEND_API_URL: process.env.APP_FRONTEND_API_URL || "http://localhost:3000/api"
 }
 
 const _googleConfig = {
