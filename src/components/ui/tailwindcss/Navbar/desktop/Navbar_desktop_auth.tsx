@@ -1,6 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "../../../shadcn/dialog";
+import {
+  Dialog,
+  DialogContentUserAuth,
+  DialogTrigger,
+} from "../../../shadcn/dialog";
 import { Button } from "../../../shadcn/button";
 import AuthPage from "@/components/layouts/AuthPage";
 import { SheetTitle } from "../../../shadcn/sheet";
@@ -17,9 +21,9 @@ const Navbar_desktop_auth = () => {
           Signin
         </Button>
       </DialogTrigger>
-      <DialogContent className=" scale-75 p-0 ">
+      <DialogContentUserAuth>
         <AuthPage />
-      </DialogContent>
+      </DialogContentUserAuth>
       <SheetTitle className="hidden"></SheetTitle>
     </Dialog>
   );

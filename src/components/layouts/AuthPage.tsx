@@ -26,19 +26,18 @@ const AuthPage = () => {
       size="medium"
       className="shadow-foreground"
     >
-      <Card className="  gradient text-foreground  border-0 rounded-[5px]">
-        <CardHeader className="space-y-1 pb-2">
+      <Card className="  gradient  text-foreground  border-0 rounded-[5px]">
+        <CardHeader className="space-y-1 pb-2 ">
           <Tabs
             defaultValue="signin"
             value={activeTab}
             onValueChange={(value: string) => setActiveTab(value as authpages)}
-            className="w-full"
           >
             <TabsList className="grid w-full grid-cols-2 ">
-              <TabsTrigger value="signin" className="cursor-pointer">
+              <TabsTrigger value="signin" className="fadeAnimation">
                 Sign In
               </TabsTrigger>
-              <TabsTrigger value="signup" className="cursor-pointer">
+              <TabsTrigger value="signup" className="fadeAnimation">
                 Sign Up
               </TabsTrigger>
             </TabsList>

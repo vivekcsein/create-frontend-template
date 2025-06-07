@@ -3,7 +3,7 @@ import Border from "@/components/layouts/Border";
 
 export default function Home() {
   return (
-    <main className="w-full bg-background h-lvh center">
+    <main className="w-full bg-background h-lvh">
       {/* <CardGamev1 /> */}
       {/* <Border variant="offset-bottom-left" size="medium">
         <div className="w-100 h-50 bg-accent rounded-sm  "></div>

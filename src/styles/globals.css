@@ -349,3 +349,7 @@ input::placeholder {
     border-top-left-radius: 100%;
     border-bottom-left-radius: 100%;
 }
+
+.fadeAnimation {
+    transition: all .5s ease-in-out;
+}
