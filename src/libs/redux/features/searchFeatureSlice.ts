@@ -12,6 +12,7 @@ interface SearchState {
     recentSearches?: string[];
     trendingSearches?: ProductDetails[];
     fetchSearchData?: ProductDetails[];
+    outputSearchData?: ProductDetails[];
 }
 
 const initialState: SearchState = {
@@ -20,7 +21,8 @@ const initialState: SearchState = {
     searchQuery: getLocalStorageItem('searchQuery', ""),
     recentSearches: getLocalStorageItem('recentSearches', []),
     trendingSearches: [],
-    fetchSearchData: [],// Now will hold ProductDetails[]
+    fetchSearchData: [],
+    outputSearchData: []
 };
 
 const trendingSearchesURL = `${envFrontendHost.APP_FRONTEND_API_URL}/products/trendingproducts`;
@@ -41,6 +43,20 @@ export const fetchTrendingSearches = createAsyncThunk("searchFeature/fetchTrendi
 export const fetchAllSearchData = createAsyncThunk("searchFeature/fetchSearchAPIData",
     async () => {
         const response = await axios.get(fetchSearchDataURL, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+        });
+        return response.data.productsList;
+    }
+);
+
+export const startSearching = createAsyncThunk(
+    "searchFeature/startSearching",
+    async (searchQuery) => {
+        const response = await axios.get(`${envFrontendHost.APP_FRONTEND_API_URL}/products/search`, {
+            params: { q: searchQuery },
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -92,8 +108,17 @@ const searchFeatureSlice = createSlice({
             .addCase(fetchAllSearchData.rejected, (state, action) => {
                 console.error('Failed to fetch search API data:', action.error);
             });
+        builder
+            .addCase(startSearching.pending, (state) => {
+                // Optionally handle loading state
+            })
+            .addCase(startSearching.fulfilled, (state, action: PayloadAction<ProductDetails[]>) => {
+                state.outputSearchData = action.payload;
+            })
+            .addCase(startSearching.rejected, (state, action) => {
+                console.error('Failed to fetch output search API data:', action.error);
+            });
     },
-
 });
 
 export const { setSearchQuery, toggleMainSearch, openMainSearch, closeMainSearch, loadSearchQuery } = searchFeatureSlice.actions;
