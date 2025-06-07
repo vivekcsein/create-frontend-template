@@ -4,14 +4,13 @@ import { getLocalStorageItem, setLocalStorageItem } from '@/libs/configs/config.
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductDetails } from '@/types/products';
 
-
 interface SearchState {
     isMainSearchOpen: boolean;
     searchStatus?: 'idle' | 'loading' | 'running' | 'succeeded' | 'stoped' | 'failed';
     searchQuery: string;
     recentSearches?: string[];
-    trendingSearches?: ProductDetails[];
-    fetchSearchData?: ProductDetails[];
+    trendingSearches?: string[];
+    fetchSearchData?: string[];
     outputSearchData?: ProductDetails[];
 }
 
@@ -54,14 +53,15 @@ export const fetchAllSearchData = createAsyncThunk("searchFeature/fetchSearchAPI
 
 export const startSearching = createAsyncThunk(
     "searchFeature/startSearching",
-    async (searchQuery) => {
-        const response = await axios.get(`${envFrontendHost.APP_FRONTEND_API_URL}/products/search`, {
-            params: { q: searchQuery },
+    async (searchQuery: string) => {
+        const response = await axios.get(`${envFrontendHost.APP_FRONTEND_API_URL}/products/searchproducts`, {
+            params: { query: searchQuery },
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
         });
+        console.log(response.data.productsList);
         return response.data.productsList;
     }
 );
@@ -92,20 +92,20 @@ const searchFeatureSlice = createSlice({
             .addCase(fetchTrendingSearches.pending, (state) => {
                 // Optionally handle loading state
             })
-            .addCase(fetchTrendingSearches.fulfilled, (state, action: PayloadAction<ProductDetails[]>) => {
+            .addCase(fetchTrendingSearches.fulfilled, (state, action: PayloadAction<string[]>) => {
                 state.trendingSearches = action.payload;
             })
             .addCase(fetchTrendingSearches.rejected, (state, action) => {
                 console.error('Failed to fetch trending searches:', action.error);
             });
         builder
-            .addCase(fetchAllSearchData.pending, (state) => {
+            .addCase(fetchAllSearchData.pending, (_state) => {
                 // Optionally handle loading state
             })
-            .addCase(fetchAllSearchData.fulfilled, (state, action: PayloadAction<ProductDetails[]>) => {
+            .addCase(fetchAllSearchData.fulfilled, (state, action: PayloadAction<string[]>) => {
                 state.fetchSearchData = action.payload;
             })
-            .addCase(fetchAllSearchData.rejected, (state, action) => {
+            .addCase(fetchAllSearchData.rejected, (_state, action) => {
                 console.error('Failed to fetch search API data:', action.error);
             });
         builder
@@ -115,7 +115,7 @@ const searchFeatureSlice = createSlice({
             .addCase(startSearching.fulfilled, (state, action: PayloadAction<ProductDetails[]>) => {
                 state.outputSearchData = action.payload;
             })
-            .addCase(startSearching.rejected, (state, action) => {
+            .addCase(startSearching.rejected, (_state, action) => {
                 console.error('Failed to fetch output search API data:', action.error);
             });
     },

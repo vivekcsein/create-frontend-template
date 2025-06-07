@@ -14,7 +14,13 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
     const trendingProducts = products.productsList.filter((item) => item.trending === true);
+    const trendingProductsList: Array<string> = [];
+    trendingProducts.map((item) => {
+        trendingProductsList.push(item.name);
+    })
+
+
     return NextResponse.json({
-        productsList: trendingProducts,
+        productsList: trendingProductsList,
     });
 }

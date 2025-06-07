@@ -13,7 +13,13 @@ export async function GET(request: NextRequest) {
     if (origin && !allowedOrigins.includes(origin)) {
         return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
+
+    const productsList: Array<string> = [];
+    products.productsList.map((item) => {
+        productsList.push(item.name);
+    })
+
     return NextResponse.json({
-        productsList: products.productsList,
+        productsList: productsList,
     });
 }
