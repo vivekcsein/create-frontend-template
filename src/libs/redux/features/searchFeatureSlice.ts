@@ -1,27 +1,29 @@
+import axios from 'axios';
 import { envFrontendHost } from '@/libs/configs/config.env';
 import { getLocalStorageItem, setLocalStorageItem } from '@/libs/configs/config.helper';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { ProductDetails } from '@/types/products';
 
 
 interface SearchState {
     isMainSearchOpen: boolean;
+    searchStatus?: 'idle' | 'loading' | 'running' | 'succeeded' | 'stoped' | 'failed';
     searchQuery: string;
     recentSearches?: string[];
-    trendingSearches?: string[];
-    searchStatus?: 'idle' | 'loading' | 'succeeded' | 'failed';
-    searchData?: string[];
+    trendingSearches?: ProductDetails[];
+    fetchSearchData?: ProductDetails[];
 }
 
 const initialState: SearchState = {
     isMainSearchOpen: true,
+    searchStatus: "idle",
     searchQuery: getLocalStorageItem('searchQuery', ""),
     recentSearches: getLocalStorageItem('recentSearches', []),
     trendingSearches: [],
-    searchData: [],
+    fetchSearchData: [],// Now will hold ProductDetails[]
 };
 
-const trendingSearchesURL = `${envFrontendHost.APP_FRONTEND_API_URL}/trending-searches`;
+const trendingSearchesURL = `${envFrontendHost.APP_FRONTEND_API_URL}/products/trendingproducts`;
 const fetchSearchDataURL = `${envFrontendHost.APP_FRONTEND_API_URL}/products/fetchproducts`;
 
 export const fetchTrendingSearches = createAsyncThunk("searchFeature/fetchTrendingSearches",
@@ -32,11 +34,11 @@ export const fetchTrendingSearches = createAsyncThunk("searchFeature/fetchTrendi
                 'Accept': 'application/json',
             },
         });
-        return response.data;
+        return response.data.productsList;
     }
 );
 
-export const fetchSearchData = createAsyncThunk("searchFeature/fetchSearchAPIData",
+export const fetchAllSearchData = createAsyncThunk("searchFeature/fetchSearchAPIData",
     async () => {
         const response = await axios.get(fetchSearchDataURL, {
             headers: {
@@ -44,7 +46,7 @@ export const fetchSearchData = createAsyncThunk("searchFeature/fetchSearchAPIDat
                 'Accept': 'application/json',
             },
         });
-        return response.data;
+        return response.data.productsList;
     }
 );
 
@@ -74,20 +76,20 @@ const searchFeatureSlice = createSlice({
             .addCase(fetchTrendingSearches.pending, (state) => {
                 // Optionally handle loading state
             })
-            .addCase(fetchTrendingSearches.fulfilled, (state, action: PayloadAction<string[]>) => {
+            .addCase(fetchTrendingSearches.fulfilled, (state, action: PayloadAction<ProductDetails[]>) => {
                 state.trendingSearches = action.payload;
             })
             .addCase(fetchTrendingSearches.rejected, (state, action) => {
                 console.error('Failed to fetch trending searches:', action.error);
             });
         builder
-            .addCase(fetchSearchData.pending, (state) => {
+            .addCase(fetchAllSearchData.pending, (state) => {
                 // Optionally handle loading state
             })
-            .addCase(fetchSearchData.fulfilled, (state, action: PayloadAction<string[]>) => {
-                state.searchData = action.payload;
+            .addCase(fetchAllSearchData.fulfilled, (state, action: PayloadAction<ProductDetails[]>) => {
+                state.fetchSearchData = action.payload;
             })
-            .addCase(fetchSearchData.rejected, (state, action) => {
+            .addCase(fetchAllSearchData.rejected, (state, action) => {
                 console.error('Failed to fetch search API data:', action.error);
             });
     },

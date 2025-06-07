@@ -1,21 +1,20 @@
-interface ProductDetails {
-    sizes: string[];
-    colors: string[];
-    material: string;
-}
-
-export interface Product {
+export interface ProductDetails {
     uid: number;
+    Category: string;
+    trending: boolean;
     name: string;
     description: string;
     price: number;
     rating: number;
     image: string;
-    details: ProductDetails;
+    details: {
+        sizes: string[];
+        colors: string[];
+        material: string;
+    };
 }
-
-export interface Category {
-    name: string;
-    products: Product[];
+export interface ProductsJson {
+    version: string;
+    lastUpdated: string;
+    productsList: ProductDetails[];
 }
-
