@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/libs/redux/store";
 
 const Searchbar_main = () => {
-  const searchFeature = useSelector((state: RootState) => state.searchFeature);
+  // const searchFeature = useSelector((state: RootState) => state.searchFeature);
   const dispatch = useDispatch();
 
   return (
