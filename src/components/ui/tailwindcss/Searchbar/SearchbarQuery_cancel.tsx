@@ -1,6 +1,6 @@
 "use client";
 
-import { setSearchQuery } from "@/libs/redux/features/searchFeatureSlice";
+import { clearSearchQuery } from "@/libs/redux/features/searchFeatureSlice";
 import { RootState } from "@/libs/redux/store";
 import { CircleX } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ const SearchbarQuery_cancel = () => {
         onClick={(e) => {
           e.preventDefault();
           console.log("cancel search");
-          dispatch(setSearchQuery(""));
+          dispatch(clearSearchQuery(""));
         }}
       >
         <CircleX className="w-4 h-4" />

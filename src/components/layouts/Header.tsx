@@ -89,6 +89,7 @@ const Header = () => {
                 isAuthenticated={isAuthenticated}
                 dropdownData={rootLayoutData.productsData}
               />
+              
               <Header_animation refObject={headerRef}></Header_animation>
             </div>
           )}

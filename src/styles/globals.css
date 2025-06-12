@@ -170,7 +170,7 @@ h6 {
 p,
 div,
 span {
-    font-size: .9rem;
+    font-size: .7rem;
 }
 
 @media only screen and (max-width: 720px) {

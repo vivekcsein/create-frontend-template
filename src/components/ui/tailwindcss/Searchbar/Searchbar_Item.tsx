@@ -4,19 +4,19 @@ import React from "react";
 
 interface Searchbar_ItemProps {
   item: string;
-  onSelect?: () => void;
+  onSelect?: (item: string) => void;
 }
-const Searchbar_Item = ({ item, onSelect }: Searchbar_ItemProps) => {
+const Searchbar_Item: React.FC<Searchbar_ItemProps> = ({ item, onSelect }) => {
   return (
     <Command.Item
-      className=" bg-primary cursor-pointer  my-2 rounded-md  py-1"
+      className="bg-primary cursor-pointer  my-2 rounded-md  py-1"
       onSelect={() => {
         if (onSelect) {
-          onSelect();
+          onSelect(item);
         }
       }}
     >
-      <span className=" text-center text-sm text-muted-foreground coolLink">
+      <span className=" textFont text-bold text-center text-muted-foreground coolLink ">
         {item}
       </span>
     </Command.Item>

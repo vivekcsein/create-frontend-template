@@ -33,6 +33,7 @@ const Navbar_desktop = ({
             </li>
           )
         )}
+
         <Themes />
         <li className="center ">
           {isAuthenticated ? <Auth_userInfo /> : <Navbar_desktop_auth />}

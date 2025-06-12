@@ -1,5 +1,8 @@
 "use client";
-import { setSearchQuery } from "@/libs/redux/features/searchFeatureSlice";
+import {
+  setSearchQuery,
+  startSearchThinking,
+} from "@/libs/redux/features/searchFeatureSlice";
 import { RootState } from "@/libs/redux/store";
 import { Command } from "cmdk";
 import React from "react";
@@ -20,10 +23,14 @@ const Searchbar_Input = () => {
         e.stopPropagation();
         const target = e.target as HTMLInputElement;
         const query = target.value;
+        if (!query.length) {
+          dispatch(startSearchThinking(""));
+        }
         dispatch(setSearchQuery(query));
       }}
-      // onFocus={() => setSearchbarON(true)}
-      //   onBlur={() => setSearchbarON(false)}
+      onFocus={() => {
+        dispatch(startSearchThinking(""));
+      }}
     />
   );
 };
