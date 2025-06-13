@@ -1,16 +1,20 @@
 export interface ProductDetails {
     uid: number;
-    Category: string;
-    trending: boolean;
-    name: string;
+    Category: Array<string>;
+    isTrending: boolean;
+    productName: string;
     description: string;
-    price: number;
-    rating: number;
-    image: string;
+    currentPrice: number;
+    sellerPrice: number;
+    currentRating: number;
+    totalRating: number;
+    totalReview: number;
+    image: Array<imageDetails>;
     details: {
         sizes: string[];
         colors: string[];
-        material: string;
+        material: string[];
+        features: Array<ItemFeatures>;
     };
 }
 export interface ProductsJson {
@@ -18,3 +22,13 @@ export interface ProductsJson {
     lastUpdated: string;
     productsList: ProductDetails[];
 }
+export interface ItemFeatures {
+    weights?: string[];
+}
+
+export interface imageDetails {
+    uid: string;
+    src: string;
+    alt: string;
+}
+

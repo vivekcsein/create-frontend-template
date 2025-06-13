@@ -1,244 +1,408 @@
 {
-  "version": "1.0",
-  "lastUpdated": "2023-10-01",
+  "version": "1.1",
+  "lastUpdated": "13-06-2025",
   "productsList": [
     {
       "uid": 1,
-      "Category": "Men",
-      "trending": true,
-      "name": "Classic White Shirt",
+      "Category": ["men", "clothing"],
+      "isTrending": true,
+      "productName": "Classic White Shirt",
       "description": "Premium cotton, slim fit, perfect for office or casual wear.",
-      "price": 29.99,
-      "rating": 4.5,
-      "image": "/images/men/white-shirt.jpg",
+      "currentPrice": 29.99,
+      "sellerPrice": 40.0,
+      "currentRating": 3.5,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Classic-White-Shirt01.jpg",
+          "alt": ""
+        }
+      ],
       "details": {
         "sizes": ["S", "M", "L", "XL"],
         "colors": ["White"],
-        "material": "100% Cotton"
+        "material": "100% Cotton",
+        "features": []
       }
     },
     {
       "uid": 2,
-      "Category": "Men",
-      "trending": false,
-      "name": "Blue Denim Jeans",
+      "Category": ["men", "clothing"],
+      "isTrending": false,
+      "productName": "Blue Denim Jeans",
       "description": "Stretchable, regular fit, durable denim for everyday use.",
-      "price": 49.99,
-      "rating": 4.7,
-      "image": "/images/men/denim-jeans.jpg",
+      "currentPrice": 49.99,
+      "sellerPrice": 40.0,
+      "currentRating": 4.7,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Blue-Denim-Jeans01.jpg",
+          "alt": ""
+        }
+      ],
       "details": {
         "sizes": ["30", "32", "34", "36"],
         "colors": ["Blue"],
-        "material": "Denim"
+        "material": "Denim",
+        "features": []
       }
     },
     {
       "uid": 3,
-      "Category": "Women",
-      "trending": true,
-      "name": "Floral Summer Dress",
+      "Category": ["women", "clothing"],
+      "isTrending": true,
+      "productName": "Floral Summer Dress",
       "description": "Lightweight, breathable fabric, perfect for summer outings.",
-      "price": 39.99,
-      "rating": 4.8,
-      "image": "/images/women/floral-dress.jpg",
+      "currentPrice": 39.99,
+      "sellerPrice": 50,
+      "currentRating": 2.8,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/women/Floral-Summer-Dress01.jpg",
+          "alt": ""
+        }
+      ],
       "details": {
         "sizes": ["XS", "S", "M", "L"],
         "colors": ["Pink", "Yellow"],
-        "material": "Rayon"
+        "material": "Rayon",
+        "features": []
       }
     },
     {
       "uid": 4,
-      "Category": "Women",
-      "trending": false,
-      "name": "Black Leggings",
+      "Category": ["women", "clothing"],
+      "isTrending": false,
+      "productName": "Black Leggings",
       "description": "High-waisted, stretchable, suitable for gym and casual wear.",
-      "price": 19.99,
-      "rating": 4.6,
-      "image": "/images/women/black-leggings.jpg",
+      "currentPrice": 19.99,
+      "sellerPrice": 50,
+      "currentRating": 3.5,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/women/Black-Leggings01.jpg",
+          "alt": "Black Leggings"
+        }
+      ],
       "details": {
         "sizes": ["S", "M", "L", "XL"],
         "colors": ["Black"],
-        "material": "Polyester, Spandex"
+        "material": ["Polyester, Spandex"]
       }
     },
     {
       "uid": 5,
-      "Category": "Kids",
-      "trending": false,
-      "name": "Boys' Graphic T-Shirt",
+      "Category": ["kids", "clothing"],
+      "isTrending": false,
+      "productName": "Boys' Graphic T-Shirt",
       "description": "Fun prints, soft cotton, available in multiple colors.",
-      "price": 14.99,
-      "rating": 4.3,
-      "image": "/images/kids/boys-tshirt.jpg",
+      "currentPrice": 14.99,
+      "sellerPrice": 100,
+      "currentRating": 4.3,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/kids/Boys-Graphic-TShirt01.jpg",
+          "alt": "Boys' Graphic T-Shirt"
+        }
+      ],
       "details": {
         "sizes": ["2-3Y", "4-5Y", "6-7Y"],
         "colors": ["Red", "Blue", "Green"],
-        "material": "Cotton"
+        "material": ["Cotton"],
+        "features": []
       }
     },
     {
       "uid": 6,
-      "Category": "Kids",
-      "trending": false,
-      "name": "Girls' Denim Skirt",
+      "Category": ["kids", "clothing"],
+      "isTrending": false,
+      "productName": "Girls' Denim Skirt",
       "description": "Trendy, comfortable, easy to pair with any top.",
-      "price": 17.99,
-      "rating": 4.4,
-      "image": "",
+      "currentPrice": 17.99,
+      "sellerPrice": 50,
+      "currentRating": 4.4,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/kids/Girls-Denim-Skirt01.jpg",
+          "alt": "Girls' Denim Skirt"
+        }
+      ],
       "details": {
         "sizes": ["2-3Y", "4-5Y", "6-7Y"],
         "colors": ["Red", "Blue", "Green"],
-        "material": "Cotton"
+        "material": ["Cotton"],
+        "features": []
       }
     },
     {
       "uid": 7,
-      "Category": "Men",
-      "trending": false,
-      "name": "Slim Fit T-Shirt",
+      "Category": ["men", "clothing"],
+      "isTrending": false,
+      "productName": "Slim Fit T-Shirt",
       "description": "Soft cotton fabric, ideal for casual wear and layering.",
-      "price": 12.99,
-      "rating": 4.2,
-      "image": "",
+      "currentPrice": 12.99,
+      "sellerPrice": 50,
+      "currentRating": 4.2,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Slim-Fit-TShirt01.jpg",
+          "alt": "Slim Fit T-Shirt"
+        }
+      ],
       "details": {
         "sizes": ["S", "M", "L", "XL", "XXL"],
         "colors": ["Black", "White", "Gray", "Navy"],
-        "material": "Cotton"
+        "material": ["Cotton"],
+        "features": []
       }
     },
     {
       "uid": 8,
-      "Category": "Women",
-      "trending": false,
-      "name": "Casual Maxi Dress",
+      "Category": ["women", "clothing"],
+      "isTrending": false,
+      "productName": "Casual Maxi Dress",
       "description": "Flowy and elegant, perfect for summer outings and evening wear.",
-      "price": 29.99,
-      "rating": 4.7,
-      "image": "",
+      "currentPrice": 29.99,
+      "sellerPrice": 50,
+      "currentRating": 4.7,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Casual-Maxi-Dress01.jpg",
+          "alt": "Casual Maxi Dress"
+        }
+      ],
       "details": {
         "sizes": ["XS", "S", "M", "L", "XL"],
         "colors": ["Red", "Blue", "Green", "Black", "Purple"],
-        "material": "Polyester"
+        "material": ["Polyester"],
+        "features": []
       }
     },
     {
       "uid": 9,
-      "Category": "Kids",
-      "trending": false,
-      "name": "Graphic Hoodie",
+      "Category": ["kids"],
+      "isTrending": false,
+      "productName": "Graphic Hoodie",
       "description": "Comfortable hoodie with fun prints, suitable for all seasons.",
-      "price": 19.99,
-      "rating": 4.5,
-      "image": "",
+      "currentPrice": 19.99,
+      "sellerPrice": 50,
+      "currentRating": 4.5,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Graphic-Hoodie01.jpg",
+          "alt": "Graphic Hoodie"
+        }
+      ],
       "details": {
         "sizes": ["2-3Y", "4-5Y", "6-7Y", "8-9Y", "10-12Y"],
         "colors": ["Yellow", "Blue", "Pink", "Green"],
-        "material": "Fleece"
+        "material": ["Fleece"],
+        "features": []
       }
     },
     {
       "uid": 10,
-      "Category": "Accessories",
-      "trending": false,
-      "name": "Leather Wallet",
+      "Category": ["accessories"],
+      "isTrending": false,
+      "productName": "Leather Wallet",
       "description": "Compact and stylish wallet with multiple compartments and RFID protection.",
-      "price": 15.99,
-      "rating": 4.3,
-      "image": "",
+      "currentPrice": 15.99,
+      "sellerPrice": 30,
+      "currentRating": 4.3,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Leather-Wallet01.jpg",
+          "alt": "Leather Wallet"
+        }
+      ],
       "details": {
         "sizes": ["Standard"],
         "colors": ["Brown", "Black", "Tan", "Dark Green"],
-        "material": "Genuine Leather"
+        "material": ["Genuine Leather"],
+        "features": []
       }
     },
     {
       "uid": 11,
-      "Category": "Footwear",
-      "trending": true,
-      "name": "Running Shoes",
+      "Category": ["footwear"],
+      "isTrending": true,
+      "productName": "Running Shoes",
       "description": "Lightweight and breathable sports shoes with high grip soles.",
-      "price": 49.99,
-      "rating": 4.6,
-      "image": "",
+      "currentPrice": 49.99,
+      "sellerPrice": 100,
+      "currentRating": 4.6,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Running-Shoes01.jpg",
+          "alt": "Running Shoes"
+        }
+      ],
       "details": {
         "sizes": ["6", "7", "8", "9", "10", "11"],
         "colors": ["White", "Black", "Gray", "Blue"],
-        "material": "Mesh and Synthetic"
+        "material": ["Mesh and Synthetic"],
+        "features": []
       }
     },
     {
       "uid": 12,
-      "Category": "Home & Kitchen",
-      "trending": false,
-      "name": "Non-Stick Frying Pan",
+      "Category": ["home & kitchen"],
+      "isTrending": false,
+      "productName": "Non-Stick Frying Pan",
       "description": "Durable and heat-resistant frying pan with an ergonomic handle.",
-      "price": 24.99,
-      "rating": 4.5,
-      "image": "",
+      "currentPrice": 24.99,
+      "sellerPrice": 50,
+      "currentRating": 4.5,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Non-Stick-Frying-Pan01.jpg",
+          "alt": "Non-Stick Frying Pan"
+        }
+      ],
       "details": {
         "sizes": ["8-inch", "10-inch", "12-inch"],
         "colors": ["Black", "Gray"],
-        "material": "Aluminum with Non-Stick Coating"
+        "material": ["Aluminum with Non-Stick Coating"],
+        "features": []
       }
     },
     {
       "uid": 13,
-      "Category": "Electronics",
-      "trending": false,
-      "name": "Wireless Bluetooth Earbuds",
+      "Category": ["electronics"],
+      "isTrending": false,
+      "productName": "Wireless Bluetooth Earbuds",
       "description": "Noise-cancelling earbuds with long battery life and deep bass.",
-      "price": 59.99,
-      "rating": 4.8,
-      "image": "",
+      "currentPrice": 59.99,
+      "sellerPrice": 80,
+      "currentRating": 4.8,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Wireless-Bluetooth-Earbuds01.jpg",
+          "alt": "Wireless Bluetooth Earbuds"
+        }
+      ],
       "details": {
         "colors": ["Black", "White", "Blue"],
         "battery_life": "Up to 24 hours",
-        "connectivity": "Bluetooth 5.1"
+        "connectivity": ["Bluetooth 5.1"],
+        "features": []
       }
     },
     {
       "uid": 14,
-      "Category": "Beauty & Personal Care",
-      "trending": true,
-      "name": "Vitamin C Face Serum",
+      "Category": ["beauty & personal care"],
+      "isTrending": true,
+      "productName": "Vitamin C Face Serum",
       "description": "Hydrating and brightening serum with natural extracts.",
-      "price": 19.99,
-      "rating": 4.6,
-      "image": "",
+      "currentPrice": 19.99,
+      "sellerPrice": 30,
+      "currentRating": 4.6,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Vitamin-CFace-Serum01.jpg",
+          "alt": "Vitamin C Face Serum"
+        }
+      ],
       "details": {
         "sizes": ["30ml", "50ml"],
         "ingredients": ["Vitamin C", "Hyaluronic Acid", "Green Tea Extract"],
-        "skin_type": ["All skin types"]
+        "skin_type": ["All skin types"],
+        "features": []
       }
     },
     {
       "uid": 15,
-      "Category": "Books",
-      "trending": false,
-      "name": "Fantasy Adventure Novel",
+      "Category": ["books"],
+      "isTrending": false,
+      "productName": "Fantasy Adventure Novel",
       "description": "An epic story filled with magic, mythical creatures, and heroic journeys.",
-      "price": 14.99,
-      "rating": 4.7,
-      "image": "",
+      "currentPrice": 14.99,
+      "sellerPrice": 20,
+      "currentRating": 4.7,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Fantasy-Adventure-Novel01.jpg",
+          "alt": "Fantasy Adventure Novel"
+        }
+      ],
       "details": {
         "formats": ["Paperback", "Hardcover", "Kindle"],
         "pages": 350,
-        "author": "John Doe"
+        "author": ["John Doe"],
+        "features": []
       }
     },
     {
       "uid": 16,
-      "Category": "Sports & Outdoors",
-      "trending": true,
-      "name": "Adjustable Dumbbell Set",
+      "Category": ["sports & outdoors"],
+      "isTrending": true,
+      "productName": "Adjustable Dumbbell Set",
       "description": "Space-saving and adjustable weights for home workouts.",
-      "price": 79.99,
-      "rating": 4.5,
-      "image": "",
+      "currentPrice": 79.99,
+      "sellerPrice": 90,
+      "currentRating": 4.5,
+      "totalRating": 5,
+      "totalReview": 50,
+      "images": [
+        {
+          "uid": "1",
+          "src": "/images/men/Adjustable-Dumbbell-Set01.jpg",
+          "alt": "Adjustable Dumbbell Set"
+        }
+      ],
       "details": {
-        "weights": ["5lb", "10lb", "15lb", "20lb"],
-        "material": "Steel with Rubber Grip"
+        "sizes": [],
+        "colors": [],
+        "material": ["Steel with Rubber Grip"],
+        "features": [
+          {
+            "weights": ["5lb", "10lb", "15lb", "20lb"]
+          }
+        ]
       }
     }
   ]
