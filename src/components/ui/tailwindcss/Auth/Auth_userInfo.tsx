@@ -1,4 +1,4 @@
-import { vivekcse_Avatar } from "@/libs/configs/config.svg";
+import { vivekcse_Avatar } from "@/libs/configs/config.images";
 import { Avatar, AvatarFallback, AvatarImage } from "../../shadcn/avatar";
 import {
   NavigationMenu,

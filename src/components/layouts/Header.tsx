@@ -77,7 +77,7 @@ const Header = () => {
             // Desktop version
             // Desktop version
             // Desktop version
-            <div className="Header__desktop">
+            <div className="Header__desktop z-100 bg-border">
               <Navbar_desktop_logo
                 // src={headerData.header_Logo.src}
                 alt={headerData.header_Logo.alt}
@@ -89,7 +89,7 @@ const Header = () => {
                 isAuthenticated={isAuthenticated}
                 dropdownData={rootLayoutData.productsData}
               />
-              
+
               <Header_animation refObject={headerRef}></Header_animation>
             </div>
           )}

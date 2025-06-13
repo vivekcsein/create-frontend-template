@@ -46,7 +46,7 @@ Initialize Sass in our project
 
 <p>
 
-    bun add dotenv next-themes axios react-redux @reduxjs/toolkit framer-motion gsap
+    bun add dotenv next-themes axios react-redux @reduxjs/toolkit gsap swiper
 
 </p>
 
