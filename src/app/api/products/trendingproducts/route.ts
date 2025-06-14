@@ -13,10 +13,10 @@ export async function GET(request: NextRequest) {
     if (origin && !allowedOrigins.includes(origin)) {
         return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
-    const trendingProducts = products.productsList.filter((item) => item.trending === true);
+    const trendingProducts = products.productsList.filter((item) => item.isTrending === true);
     const trendingProductsList: Array<string> = [];
     trendingProducts.map((item) => {
-        trendingProductsList.push(item.name);
+        trendingProductsList.push(item.productName);
     })
 
 

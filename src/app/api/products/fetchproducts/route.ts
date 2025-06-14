@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
 
     const productsList: Array<string> = [];
     products.productsList.map((item) => {
-        productsList.push(item.name);
+        productsList.push(item.productName);
     })
 
     return NextResponse.json({

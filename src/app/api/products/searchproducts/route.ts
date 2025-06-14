@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
 
     // Filter products by name (case-insensitive, partial match)
     const resultProducts = products.productsList.filter((item) =>
-        item.name.toLowerCase().includes(searchQuery)
+        item.productName.toLowerCase().includes(searchQuery)
     );
 
     return NextResponse.json({
