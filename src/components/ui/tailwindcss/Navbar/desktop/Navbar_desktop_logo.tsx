@@ -15,7 +15,8 @@ const Navbar_desktop_logo = ({ src, alt, href }: NavbarTabletImgProps) => {
           src={src ? src : "https://i.ibb.co/kv9nMCL/FRNZ-logo-online.png"}
           alt={alt ? alt : "Logo"}
           width={150}
-          height={100}
+          height={150}
+          loading="lazy"
         />
       </Link>
     </div>
