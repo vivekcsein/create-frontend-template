@@ -27,7 +27,7 @@ export interface ItemFeatures {
 }
 
 export interface imageDetails {
-    uid: string;
+    uid: number;
     src: string;
     alt: string;
 }

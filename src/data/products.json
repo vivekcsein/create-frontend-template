@@ -15,7 +15,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Classic-White-Shirt01.jpg",
           "alt": ""
         }
@@ -40,7 +40,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Blue-Denim-Jeans01.jpg",
           "alt": ""
         }
@@ -65,7 +65,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/women/Floral-Summer-Dress01.jpg",
           "alt": ""
         }
@@ -90,7 +90,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/women/Black-Leggings01.jpg",
           "alt": "Black Leggings"
         }
@@ -114,7 +114,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/kids/Boys-Graphic-TShirt01.jpg",
           "alt": "Boys' Graphic T-Shirt"
         }
@@ -139,7 +139,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/kids/Girls-Denim-Skirt01.jpg",
           "alt": "Girls' Denim Skirt"
         }
@@ -164,7 +164,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Slim-Fit-TShirt01.jpg",
           "alt": "Slim Fit T-Shirt"
         }
@@ -189,7 +189,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Casual-Maxi-Dress01.jpg",
           "alt": "Casual Maxi Dress"
         }
@@ -214,7 +214,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Graphic-Hoodie01.jpg",
           "alt": "Graphic Hoodie"
         }
@@ -239,7 +239,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Leather-Wallet01.jpg",
           "alt": "Leather Wallet"
         }
@@ -264,7 +264,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Running-Shoes01.jpg",
           "alt": "Running Shoes"
         }
@@ -289,7 +289,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Non-Stick-Frying-Pan01.jpg",
           "alt": "Non-Stick Frying Pan"
         }
@@ -314,7 +314,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Wireless-Bluetooth-Earbuds01.jpg",
           "alt": "Wireless Bluetooth Earbuds"
         }
@@ -339,7 +339,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Vitamin-CFace-Serum01.jpg",
           "alt": "Vitamin C Face Serum"
         }
@@ -364,7 +364,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Fantasy-Adventure-Novel01.jpg",
           "alt": "Fantasy Adventure Novel"
         }
@@ -389,7 +389,7 @@
       "totalReview": 50,
       "images": [
         {
-          "uid": "1",
+          "uid": 1,
           "src": "/images/men/Adjustable-Dumbbell-Set01.jpg",
           "alt": "Adjustable Dumbbell Set"
         }
