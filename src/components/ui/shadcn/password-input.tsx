@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { EyeIcon, EyeOffIcon, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 
 import { Button } from "@/components/ui/shadcn/button";
 import { Input } from "@/components/ui/shadcn/input";

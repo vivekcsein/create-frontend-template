@@ -18,7 +18,7 @@ const Searchbar_TrendingList = () => {
     }
 
     return () => {};
-  }, [searchFeature.trendingSearches?.length]);
+  }, [dispatch, searchFeature.trendingSearches?.length]);
 
   if (!searchFeature.trendingSearches?.length) {
     return null;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "../../../styles/scss/context/games/CardGames.scss";
 type Card = {
   id: number;
@@ -14,8 +14,10 @@ const CardGamev1 = () => {
   const [flippedCards, setFlippedCards] = useState<Card[]>([]);
   const [moves, setMoves] = useState(0);
 
-  const cardValues = ["🍎", "🍌", "🍇", "🍓", "🍍", "🍒", "🥝", "🍉"];
-
+  const cardValues = useMemo(
+    () => ["🍎", "🍌", "🍇", "🍓", "🍍", "🍒", "🥝", "🍉"],
+    []
+  );
   // Initialize the cards
   useEffect(() => {
     const shuffledCards = [...cardValues, ...cardValues]
@@ -28,7 +30,7 @@ const CardGamev1 = () => {
       .sort(() => Math.random() - 0.5);
 
     setCards(shuffledCards);
-  }, []);
+  }, [cardValues]);
 
   const handleCardClick = (card: Card) => {
     if (card.isFlipped || card.isMatched || flippedCards.length === 2) return;

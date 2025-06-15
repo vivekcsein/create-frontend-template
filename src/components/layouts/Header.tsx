@@ -8,9 +8,7 @@ import {
   getrootLayoutData,
   getrootLayoutDataStatus,
 } from "@/libs/redux/features/rootLayoutSlice";
-import Image from "next/image";
 import Navbar_desktop from "../ui/tailwindcss/Navbar/Navbar_desktop";
-import Link from "next/link";
 import { fetchUser } from "@/libs/redux/features/authSlice";
 import Header_animation from "../animations/layout_animations/Header_animation";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -42,7 +40,7 @@ const Header = () => {
     if (!isAuthenticated) {
       dispatch(fetchUser());
     }
-  }, [isAuthenticated]);
+  }, [dispatch, isAuthenticated]);
 
   useEffect(() => {
     if (rootLayoutStatus === "idle") {

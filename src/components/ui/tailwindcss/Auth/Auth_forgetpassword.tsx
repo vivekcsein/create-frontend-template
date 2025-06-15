@@ -10,16 +10,13 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/shadcn/form";
 import { Button } from "@/components/ui/shadcn/button";
 import {
-  Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/shadcn/card";
 
 // Schema for email validation

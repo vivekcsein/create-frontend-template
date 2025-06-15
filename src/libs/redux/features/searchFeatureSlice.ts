@@ -114,7 +114,7 @@ const searchFeatureSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchTrendingSearches.pending, (state) => {
+            .addCase(fetchTrendingSearches.pending, () => {
                 // Optionally handle loading state
             })
             .addCase(fetchTrendingSearches.fulfilled, (state, action: PayloadAction<string[]>) => {

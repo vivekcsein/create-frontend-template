@@ -11,7 +11,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   if (!searchQuery) {
     return <h1>No search query provided.</h1>;
   }
-  if (!searchQuery.length) {
+  if (searchQuery && !searchQuery.length) {
     return <h1>search query is empty.</h1>;
   }
 

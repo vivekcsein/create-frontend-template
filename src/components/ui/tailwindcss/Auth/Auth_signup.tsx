@@ -78,7 +78,7 @@ const Auth_signup = () => {
 
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
-    } catch (err) {
+    } catch (_err) {
       setError("Failed to sign up with Google. Please try again.");
     } finally {
       setIsLoading(false);

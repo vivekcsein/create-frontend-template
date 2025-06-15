@@ -30,12 +30,12 @@ export const fetchUser = createAsyncThunk(
             const response = await api.get(AuthServerList.signIn[1]);
             // console.log("user is authenticated");
             return response.data.user;
-        } catch (err: any) {
+        } catch (_err) {
             try {
                 await api.post(AuthServerList.signIn[2]);
                 const res = await api.get(AuthServerList.signIn[1]);
                 return res.data;
-            } catch (error) {
+            } catch (_error) {
                 return rejectWithValue("session expired");
             }
         }

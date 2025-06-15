@@ -1,5 +1,5 @@
-import CardGamev1 from "@/components/context/games/CardGamev1";
-import Border from "@/components/layouts/Border";
+// import CardGamev1 from "@/components/context/games/CardGamev1";
+// import Border from "@/components/layouts/Border";
 import Searchbar_main from "@/components/ui/tailwindcss/Searchbar/Searchbar_main";
 
 export default function Home() {

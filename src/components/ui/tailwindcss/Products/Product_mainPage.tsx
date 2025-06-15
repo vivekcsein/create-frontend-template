@@ -12,6 +12,7 @@ const Product_mainPage = ({ item }: Product_mainPage_Props) => {
       <div className="flex flex-col lg:flex-row">
         <Product_Gallery />
       </div>
+      <div>{item.productName}</div>
     </Wrapper_productpage>
   );
 };

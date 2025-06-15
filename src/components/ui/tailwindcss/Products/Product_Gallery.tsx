@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { dummyProductImagesList } from "@/libs/configs/config.images";
 import Product_overviewImagesList from "./Product_overviewImagesList";
 import Product_mainImage from "./Product_mainImage";
@@ -8,8 +8,10 @@ const Product_Gallery = () => {
   const [currentImage, setCurrentImage] = useState(
     parseInt(dummyProductImagesList[0].uid)
   );
-  const [_isHoveringThumbnails, setIsHoveringThumbnails] = useState(false);
-
+  const [isHoveringThumbnails, setIsHoveringThumbnails] = useState(false);
+  if (isHoveringThumbnails) {
+    console.log("");
+  }
   return (
     <section className="lg:w-2/5 *:w-full center">
       <Product_mainImage imageDetails={dummyProductImagesList[currentImage]}>

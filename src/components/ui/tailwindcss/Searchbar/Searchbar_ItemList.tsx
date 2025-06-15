@@ -19,7 +19,7 @@ const Searchbar_ItemList = () => {
     }
 
     return () => {};
-  }, [searchFeature.fetchSearchData?.length]);
+  }, [dispatch, searchFeature.fetchSearchData?.length]);
 
   if (!searchFeature.fetchSearchData?.length) {
     return null;

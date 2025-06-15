@@ -13,7 +13,7 @@ const Header_animation = ({
   useEffect(() => {
     if (!refObject?.current) return;
 
-    let tl = gsap.timeline({ paused: true });
+    const tl = gsap.timeline({ paused: true });
 
     tl.addLabel("onLoading");
     tl.fromTo(
@@ -38,7 +38,7 @@ const Header_animation = ({
   }, [refObject]);
 
   useEffect(() => {
-    let tl = gsap.timeline({
+    const tl = gsap.timeline({
       paused: true,
 
       scrollTrigger: {
@@ -65,7 +65,7 @@ const Header_animation = ({
       tl.scrollTrigger?.kill();
       tl.kill();
     };
-  }, []);
+  }, [refObject]);
 
   return null;
 };

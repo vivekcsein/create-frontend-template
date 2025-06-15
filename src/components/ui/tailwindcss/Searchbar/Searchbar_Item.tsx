@@ -2,7 +2,6 @@
 import { Command } from "cmdk";
 import { redirect } from "next/navigation";
 import React from "react";
-import { useDispatch } from "react-redux";
 
 interface Searchbar_ItemProps {
   item: string;
