@@ -38,7 +38,7 @@ const Product_quantity = ({
     return () => {
       dispatch(setCartItem(null));
     };
-  }, [dispatch]);
+  }, [dispatch, uid, productName, currentPrice, limitedQuanity]);
 
   return (
     <>

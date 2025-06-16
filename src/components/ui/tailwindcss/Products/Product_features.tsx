@@ -7,6 +7,8 @@ interface Product_featuresProps {
   details: specificationDetails;
 }
 const Product_features = ({ category, details }: Product_featuresProps) => {
+  console.log(category);
+
   const detailsArray = [
     details.colors
       ? { featureName: "colors", featureValues: details.colors }
