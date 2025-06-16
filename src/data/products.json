@@ -13,6 +13,7 @@
       "currentRating": 3.5,
       "totalRating": 5,
       "totalReview": 50,
+      "availableQuantity": 0,
       "images": [
         {
           "uid": 1,
@@ -38,6 +39,7 @@
       "currentRating": 4.7,
       "totalRating": 5,
       "totalReview": 50,
+      "availableQuantity": 20,
       "images": [
         {
           "uid": 1,
@@ -63,6 +65,7 @@
       "currentRating": 2.8,
       "totalRating": 5,
       "totalReview": 50,
+      "availableQuantity": 16,
       "images": [
         {
           "uid": 1,
@@ -88,6 +91,7 @@
       "currentRating": 3.5,
       "totalRating": 5,
       "totalReview": 50,
+      "availableQuantity": 14,
       "images": [
         {
           "uid": 1,
@@ -137,6 +141,7 @@
       "currentRating": 4.4,
       "totalRating": 5,
       "totalReview": 50,
+      "availableQuantity": 4,
       "images": [
         {
           "uid": 1,
@@ -162,6 +167,7 @@
       "currentRating": 4.2,
       "totalRating": 5,
       "totalReview": 50,
+      "availableQuantity": 8,
       "images": [
         {
           "uid": 1,
@@ -212,6 +218,7 @@
       "currentRating": 4.5,
       "totalRating": 5,
       "totalReview": 50,
+      "availableQuantity": 10,
       "images": [
         {
           "uid": 1,
@@ -372,8 +379,7 @@
       "details": {
         "formats": ["Paperback", "Hardcover", "Kindle"],
         "pages": 350,
-        "author": ["John Doe"],
-        "features": []
+        "author": ["John Doe"]
       }
     },
     {
@@ -387,6 +393,7 @@
       "currentRating": 4.5,
       "totalRating": 5,
       "totalReview": 50,
+      "availableQuantity": 12,
       "images": [
         {
           "uid": 1,
@@ -395,14 +402,8 @@
         }
       ],
       "details": {
-        "sizes": [],
-        "colors": [],
         "material": ["Steel with Rubber Grip"],
-        "features": [
-          {
-            "weights": ["5lb", "10lb", "15lb", "20lb"]
-          }
-        ]
+        "weights": ["5lb", "10lb", "15lb", "20lb"]
       }
     }
   ]

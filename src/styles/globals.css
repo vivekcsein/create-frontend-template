@@ -353,3 +353,7 @@ input::placeholder {
 .fadeAnimation {
     transition: all .5s ease-in-out;
 }
+
+.textGradient {
+    @apply font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary via-primary to-primary;
+}
