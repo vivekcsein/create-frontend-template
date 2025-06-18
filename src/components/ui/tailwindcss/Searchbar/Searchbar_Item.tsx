@@ -21,7 +21,7 @@ const Searchbar_Item: React.FC<Searchbar_ItemProps> = ({ item, onSelect }) => {
         redirectToSearchpage(item);
       }}
     >
-      <span className=" textFont text-bold text-center text-muted-foreground coolLink ">
+      <span className=" textFont text-bold text-center text-white coolLink coolLinkwhite">
         {item}
       </span>
     </Command.Item>

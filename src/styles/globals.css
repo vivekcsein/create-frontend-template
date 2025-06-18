@@ -263,7 +263,6 @@ input::placeholder {
 .coolLink {
     display: inline-block;
     text-decoration: none;
-    color: var(--foreground);
     cursor: pointer;
 }
 
@@ -275,6 +274,14 @@ input::placeholder {
     background: var(--foreground);
     transition: width .3s;
 
+}
+
+.coolLinkwhite::after {
+    background: white;
+}
+
+.coolLinkblack::after {
+    background: black;
 }
 
 .coolLink:hover::after {
