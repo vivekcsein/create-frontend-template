@@ -27,7 +27,7 @@ const Searchbar_TrendingList = () => {
     <Command.List className="px-3">
       {searchStatus === "thinking" && !searchQuery.trim() ? (
         <>
-          <Command.Empty className="text-center text-muted-foreground">
+          <Command.Empty className="text-center text-muted">
             No results found.
           </Command.Empty>
           <Command.Group

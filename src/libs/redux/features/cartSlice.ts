@@ -1,12 +1,5 @@
+import { cartItem } from "@/types/cart";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export type cartItem = {
-    id: string;
-    name: string;
-    price: number;
-    maxQuantity: number;
-    quantity: number;
-};
 
 type CartState = {
     currentCartItem: cartItem | null;
@@ -26,26 +19,29 @@ const cartSlice = createSlice({
             state.currentCartItem = action.payload;
         },
         addToLocalCartItem: (state, action: PayloadAction<cartItem>) => {
-            const existing = state.localCartItems.find(i => i.id === action.payload.id);
+            const existing = state.localCartItems.find(i => i.uid === action.payload.uid);
             if (existing) {
-                if (existing.quantity < existing.maxQuantity) {
+                if (state.currentCartItem && state.currentCartItem.uid == action.payload.uid) {
+                    existing.quantity = state.currentCartItem.quantity;
+                }
+                else if (existing.quantity < existing.maxQuantity) {
                     existing.quantity += 1;
                 }
             } else {
-                state.localCartItems.push({ ...action.payload, quantity: 1 });
+                state.localCartItems.push({ ...action.payload });
             }
         },
         removeLocalCartItem: (state, action: PayloadAction<string>) => {
-            state.localCartItems = state.localCartItems.filter(i => i.id !== action.payload);
+            state.localCartItems = state.localCartItems.filter(i => i.uid !== action.payload);
         },
         increaseLocalCartItemQuantity: (state, action: PayloadAction<string>) => {
-            const item = state.localCartItems.find(i => i.id === action.payload);
+            const item = state.localCartItems.find(i => i.uid === action.payload);
             if (item && item.quantity < item.maxQuantity) {
                 item.quantity += 1;
             }
         },
         decreaseLocalCartItemQuantity: (state, action: PayloadAction<string>) => {
-            const item = state.localCartItems.find(i => i.id === action.payload);
+            const item = state.localCartItems.find(i => i.uid === action.payload);
             if (item && item.quantity > 1) {
                 item.quantity -= 1;
             }

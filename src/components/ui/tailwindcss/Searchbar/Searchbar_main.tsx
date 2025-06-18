@@ -18,7 +18,7 @@ const Searchbar_main = () => {
   return (
     <Wrapper_searchbar>
       <Command
-        className="px-2 bg-border  flex rounded-[20px]  flex-col overflow-hidden focus:outline-none "
+        className="px-2 bg-background flex rounded-[20px]  flex-col overflow-hidden focus:outline-none "
         onBlurCapture={(e) => {
           const nextFocus = e.relatedTarget as HTMLElement | null;
           // If next focus is inside the searchbar, do nothing

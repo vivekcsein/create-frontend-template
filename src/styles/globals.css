@@ -42,21 +42,22 @@
 }
 
 :root {
-    --background: #c6adad;
-    --foreground: #0a0710;
-    --muted: #e7e6f2;
+    /* --background: #c6adad; */
+    --background: #f5f5f5f5;
+    --foreground: #000;
+    --muted: #887ef9;
     --muted-foreground: #8d8aa3;
     --popover: #f6f3ff;
     --popover-foreground: #1a0e2e;
     --card: #f6f3ff;
     --card-foreground: #1a0e2e;
-    --border: #e0def0;
+    --border: #9487f1;
     --input: #e0def0;
     --primary: #7c3aed;
-    --primary-foreground: #ffffff;
+    --primary-foreground: #6830ca;
     --secondary: #3b82f6;
-    --secondary-foreground: #f6faff;
-    --accent: #b43aff;
+    --secondary-foreground: #275aac;
+    --accent: #7c3aed;
     --accent-foreground: #ffffff;
     --destructive: #d7263d;
     --destructive-foreground: #ffffff;
@@ -72,7 +73,7 @@
 .dark {
     --background: #0a0710;
     --foreground: #f5f5f5f5;
-    --muted: #181624;
+    --muted: #ada4e0;
     --muted-foreground: #b3b0c9;
     --popover: #0a0710;
     --popover-foreground: #ffffff;
@@ -81,9 +82,9 @@
     --border: #231b2d;
     --input: #231b2d;
     --primary: #7c3aed;
-    --primary-foreground: #ffffff;
+    --primary-foreground: #6830ca;
     --secondary: #3b82f6;
-    --secondary-foreground: #f6faff;
+    --secondary-foreground: #275aac;
     --accent: #ff3ad7;
     --accent-foreground: #ffffff;
     --destructive: #e13a4b;
@@ -117,12 +118,12 @@ body {
 
 /* Code for Firefox */
 ::-moz-selection {
-    color: var(--secondary);
+    color: var(--color-white);
     background: var(--secondary-foreground);
 }
 
 ::selection {
-    color: var(--secondary);
+    color: var(--color-white);
     background: var(--secondary-foreground);
 }
 
@@ -227,7 +228,7 @@ textarea {
     font-size: 1rem;
     box-sizing: border-box;
     text-decoration: none;
-    background-color: var(--border);
+    background-color: var(--color-background);
     color: var(--foreground);
     /* padding: 0.5rem; */
 }

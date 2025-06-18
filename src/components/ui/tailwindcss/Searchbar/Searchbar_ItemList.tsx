@@ -29,12 +29,12 @@ const Searchbar_ItemList = () => {
     <Command.List className="px-3">
       {searchStatus === "typing" && searchQuery.trim() ? (
         <>
-          <Command.Empty className="text-center text-muted-foreground">
+          <Command.Empty className="text-center text-foreground">
             No results found.
           </Command.Empty>
           <Command.Group
             heading="You Search..."
-            className=" text-center  my-2 rounded-md "
+            className=" text-center my-2 rounded-md "
           >
             {searchFeature.fetchSearchData.slice(0, 5).map((item, index) => (
               <Searchbar_Item key={index} item={item} />

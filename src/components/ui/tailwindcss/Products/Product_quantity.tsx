@@ -5,49 +5,44 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setCartItem } from "@/libs/redux/features/cartSlice";
+import { cartItem } from "@/types/cart";
+import { Button } from "../../shadcn/button";
 
 interface Product_quantityProps {
-  info: {
-    uid: number;
-    productName: string;
-    currentPrice: number;
-    availableQuantity?: number;
-  };
+  info: cartItem;
 }
 
 const Product_quantity = ({
-  info: { uid, productName, currentPrice, availableQuantity },
+  info: { uid, quantity, ...props },
 }: Product_quantityProps) => {
   const currentCartItem = useSelector(
     (state: RootState) => state.cart.currentCartItem
   );
   const dispatch = useDispatch();
-  const limitedQuanity = availableQuantity ? availableQuantity : 100;
 
   useEffect(() => {
     dispatch(
       setCartItem({
-        id: uid.toString(),
-        name: productName,
-        price: currentPrice,
+        uid: uid,
         quantity: 1,
-        maxQuantity: limitedQuanity,
+        ...props,
       })
     );
 
     return () => {
       dispatch(setCartItem(null));
     };
-  }, [dispatch, uid, productName, currentPrice, limitedQuanity]);
+  }, [dispatch, uid, quantity]);
 
   return (
     <>
-      {availableQuantity == 0 ? (
+      {props.maxQuantity == 0 ? (
         <p className="text-red-500">Out of stock</p>
       ) : (
         <div className="flex items-center space-x-4">
           <div className="flex items-center border border-gray-700 rounded-lg">
-            <button
+            <Button
+              variant={"empty"}
               onClick={() => {
                 if (currentCartItem) {
                   dispatch(
@@ -61,15 +56,16 @@ const Product_quantity = ({
                   );
                 }
               }}
-              className="px-3 py-2 text-gray-400 hover:text-white transition-colors"
+              className="h-8 w-8 p-0  text-gray-400 hover:text-primary"
               aria-label="Decrease quantity"
             >
               <Minus className="h-4 w-4" />
-            </button>
-            <span className="px-4 py-2 text-white">
+            </Button>
+            <span className="px-4 py-2 text-foreground">
               {currentCartItem?.quantity}
             </span>
-            <button
+            <Button
+              variant={"empty"}
               onClick={() => {
                 if (currentCartItem) {
                   dispatch(
@@ -83,15 +79,15 @@ const Product_quantity = ({
                   );
                 }
               }}
-              className="px-3 py-2 text-gray-400 hover:text-white transition-colors"
+              className="h-8 w-8 p-0  text-gray-400 hover:text-primary"
               aria-label="Increase quantity"
             >
               <Plus className="h-4 w-4" />
-            </button>
+            </Button>
           </div>
-          <span className="text-gray-400">
-            {availableQuantity
-              ? `Only ${availableQuantity} left in stock`
+          <span className="text-muted">
+            {props.maxQuantity != 100
+              ? `Only ${props.maxQuantity} left in stock`
               : "stock availabe"}
           </span>
         </div>

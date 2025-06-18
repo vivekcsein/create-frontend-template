@@ -1,0 +1,64 @@
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 90deg;
+    inherits: false;
+}
+
+.gradientVibes {
+    border-radius: 16px;
+    background:
+        conic-gradient(from var(--gradient-angle),
+            var(--primary),
+            var(--secondary),
+            var(--accent),
+            var(--secondary),
+            var(--accent),
+            var(--primary));
+    position: relative;
+    animation: rotate 4s linear infinite;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.gradientVibes::after {
+    filter: blur(3rem);
+}
+
+@keyframes rotate {
+    0% {
+        --gradient-angle: 0deg;
+    }
+
+    100% {
+        --gradient-angle: 360deg;
+    }
+}
+
+/* animation frames */
+@keyframes animbackground {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* classiv vibes border animation */
+.animated-card-with-classic-vibes {
+    animation: animbackground 4s linear infinite;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--primary) 100%);
+    background-size: 400%;
+}
+
+.animated-card-with-rainbow-border {
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094,
+            #0000ff, #00ff00, #ffff00, #ff0000);
+    animation: animbackground 20s linear infinite;
+    background-size: 400%;
+}

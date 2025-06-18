@@ -6,6 +6,7 @@ import Product_quantity from "./Product_quantity";
 import Product_rating from "./Product_rating";
 import Product_addToCart from "./Product_addToCart";
 import Promotion_forFastdelivery from "../Usefull/Promotion_forFastdelivery";
+import Wrapper_animatedCard from "@/components/wrappers/Wrapper_animatedCard";
 
 interface Product_infoProps {
   item: ProductDetails;
@@ -16,22 +17,21 @@ const Product_info = ({ item }: Product_infoProps) => {
     Category,
     isTrending,
     productName,
-    description,
     currentPrice,
-    sellerPrice,
-    currentRating,
-    totalReview,
     availableQuantity,
     details,
+    ...props
   } = item;
 
   const discountoffer = () => {
-    return Math.round(((sellerPrice - currentPrice) * 100) / sellerPrice);
+    return Math.round(
+      ((props.sellerPrice - currentPrice) * 100) / props.sellerPrice
+    );
   };
   return (
-    <div className="space-y-6 text-white">
+    <div className="space-y-6">
       {isTrending ? (
-        <span className="inline-block px-3 py-1 bg-gradient-to-r from-secondary to-primary rounded-full mb-2">
+        <span className="inline-block text-white px-3 py-1 bg-gradient-to-r from-secondary to-primary rounded-full mb-2">
           trending now
         </span>
       ) : null}
@@ -40,33 +40,48 @@ const Product_info = ({ item }: Product_infoProps) => {
 
       <div className="space-y-4">
         <Product_rating
-          currentRating={currentRating}
-          totalReviews={totalReview}
+          currentRating={props.currentRating}
+          totalReviews={props.totalReview}
         />
         <div
-          className="text-gray-300"
-          style={{ fontSize: `${description.length < 100 ? "20px" : "14px"}` }}
+          className="text-foreground"
+          style={{
+            fontSize: `${props.description.length < 100 ? "20px" : "14px"}`,
+          }}
         >
-          {description ? description : "product description not found"}
+          {props.description
+            ? props.description
+            : "product description not found"}
         </div>
       </div>
 
       <div className="flex items-baseline">
-        <span className="text-4xl font-bold text-white">${currentPrice}</span>
-        <span className="ml-2 text-lg line-through text-gray-400">
-          ${sellerPrice}
+        <span className="text-4xl font-bold text-foreground">
+          ${currentPrice}
         </span>
-        <span className="ml-2 text-sm px-2 py-1 bg-cyan-500/20 text-cyan-400 rounded">
+        <span className="ml-2 text-lg line-through text-gray-400">
+          ${props.sellerPrice}
+        </span>
+        <span className="ml-2 text-sm px-2 py-1 bg-cyan-500/20 text-secondary font-extrabold rounded">
           {discountoffer()}% OFF
         </span>
       </div>
       <Product_quantity
-        info={{ uid, productName, currentPrice, availableQuantity }}
+        info={{
+          uid: uid.toString(),
+          productName,
+          quantity: 0,
+          currentPrice: currentPrice,
+          maxQuantity: availableQuantity ? availableQuantity : 100,
+          ...props,
+        }}
       />
       <Product_addToCart />
       <Separator className="border-gray-700" />
       <Product_features category={Category} details={details} />
-      <Promotion_forFastdelivery />
+      <Wrapper_animatedCard variant="gradientVibes" width={4}>
+        <Promotion_forFastdelivery />
+      </Wrapper_animatedCard>
     </div>
   );
 };

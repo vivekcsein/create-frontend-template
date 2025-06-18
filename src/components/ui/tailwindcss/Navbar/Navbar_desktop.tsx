@@ -4,6 +4,7 @@ import Navbar_desktop_dropdown_menu from "./desktop/Navbar_desktop_dropdown_menu
 import Navbar_desktop_auth from "./desktop/Navbar_desktop_auth";
 import Themes from "@/components/layouts/Themes";
 import Auth_userInfo from "../Auth/Auth_userInfo";
+import Cart_header from "@/components/ui/tailwindcss/cart/Cart_header";
 
 const Navbar_desktop = ({
   navbarData,
@@ -37,6 +38,9 @@ const Navbar_desktop = ({
         <Themes />
         <li className="center ">
           {isAuthenticated ? <Auth_userInfo /> : <Navbar_desktop_auth />}
+        </li>
+        <li className="center ">
+          <Cart_header />
         </li>
       </ul>
     </nav>

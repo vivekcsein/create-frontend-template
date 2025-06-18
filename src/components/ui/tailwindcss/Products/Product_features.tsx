@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../shadcn/tabs";
 import { specificationDetails } from "@/types/products";
+import Wrapper_animatedCard from "@/components/wrappers/Wrapper_animatedCard";
 
 interface Product_featuresProps {
   category: string[];
@@ -28,27 +29,29 @@ const Product_features = ({ category, details }: Product_featuresProps) => {
 
   return (
     <Tabs defaultValue={detailsArray[0].featureName} className="w-full">
-      <TabsList className="grid grid-cols-3 bg-gray-900">
+      <TabsList className="grid grid-cols-3 bg-background/50 gap-2">
         {detailsArray.map((item, index) => (
           <TabsTrigger
             key={index}
-            value={item.featureName.toString()}
-            className="data-[state=active]:bg-purple-900/50"
+            value={item.featureName}
+            className="text-foreground data-[state=active]:bg-primary data-[state=active]:text-white"
           >
-            {item.featureName.toString()}
+            {item.featureName}
           </TabsTrigger>
         ))}
       </TabsList>
 
-      {detailsArray.map((item, index) => (
-        <TabsContent
-          key={index}
-          value={item.featureName}
-          className="border border-gray-800 rounded-b-lg p-4 bg-gray-900/50"
-        >
-          <h1>{item.featureValues}</h1>
-        </TabsContent>
-      ))}
+      <Wrapper_animatedCard variant="rainbow" width={2}>
+        {detailsArray.map((item, index) => (
+          <TabsContent
+            key={index}
+            value={item.featureName}
+            className="border p-4 bg-background"
+          >
+            <h1>{item.featureValues}</h1>
+          </TabsContent>
+        ))}
+      </Wrapper_animatedCard>
     </Tabs>
   );
 };

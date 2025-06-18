@@ -25,7 +25,9 @@ const buttonVariants = cva(
         starButton: "starButton cursor-pointer",
         coolButton: "coolLink cursor-pointer",
         submit: "submitBtn",
-        empty: "",
+        empty: "cursor-pointer",
+        gradient:
+          "cursor-pointer lg:max-w-[200px] bg-gradient-to-r from-primary-foreground to-secondary-foreground hover:from-primary hover:to-secondary text-white font-medium",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

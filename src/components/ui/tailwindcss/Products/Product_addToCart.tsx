@@ -10,22 +10,30 @@ const Product_addToCart = () => {
   const currentCartItem = useSelector(
     (state: RootState) => state.cart.currentCartItem
   );
+  const localCartItem = useSelector(
+    (state: RootState) => state.cart.localCartItems
+  );
+  if (localCartItem.length) {
+    console.log(localCartItem[0].quantity);
+  }
 
   const dispatch = useDispatch();
 
   return (
     <div className="flex flex-col sm:flex-row gap-4">
       <Button
-        className="flex-1 cursor-pointer  lg:max-w-[200px] bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-black font-medium"
+        className="flex-1"
+        variant={"gradient"}
         onClick={() => {
           if (currentCartItem) {
+            console.log(currentCartItem?.quantity);
             dispatch(addToLocalCartItem(currentCartItem));
           }
         }}
       >
         <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
       </Button>
-      <Button className="flex-1 cursor-pointer lg:max-w-[200px] bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium">
+      <Button className="flex-1" variant={"gradient"}>
         <Zap className="mr-2 h-5 w-5" /> Buy Now
       </Button>
     </div>

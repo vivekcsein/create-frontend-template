@@ -1,4 +1,5 @@
 import React from "react";
+import Product_starRating from "./Product_starRating";
 
 interface Product_ratingProps {
   currentRating: number;
@@ -11,8 +12,10 @@ const Product_rating = ({
   return (
     <div>
       <div className="flex items-center mt-2 space-x-1">
-        {/* <Product_starRating currentRating={currentRating} /> */}
-        <span className="ml-2 text-gray-300">in ({totalReviews} reviews)</span>
+        <Product_starRating currentRating={currentRating} />
+        <span className="ml-2 text-foreground">
+          {currentRating} in ({totalReviews} reviews)
+        </span>
       </div>
     </div>
   );
