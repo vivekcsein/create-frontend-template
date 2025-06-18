@@ -39,6 +39,11 @@ const Cart_promoCode = () => {
                 dispatch(setPromoCodeStatus("idle"));
               }
             }}
+            onKeyDownCapture={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === "Enter") {
+                applyPromo();
+              }
+            }}
           />
           <Button
             variant={"gradient"}

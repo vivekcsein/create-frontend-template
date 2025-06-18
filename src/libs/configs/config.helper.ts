@@ -16,3 +16,20 @@ export const removeLocalStorageItem = (key: string) => {
         window.localStorage.removeItem(key);
     }
 };
+
+export const putLocalStorageItem = (key: string, value: any) => {
+    if (typeof window !== "undefined" && window.localStorage) {
+        const existing = window.localStorage.getItem(key);
+        let arr = [];
+        if (existing) {
+            try {
+                arr = JSON.parse(existing);
+                if (!Array.isArray(arr)) arr = [];
+            } catch {
+                arr = [];
+            }
+        }
+        arr.push(value);
+        window.localStorage.setItem(key, JSON.stringify(arr));
+    }
+};

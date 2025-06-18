@@ -17,7 +17,7 @@ const Cart_orderSummary = ({
   total,
 }: Cart_orderSummaryProps) => {
   return (
-    <div className="lg:col-span-1">
+
       <div className="bg-background  backdrop-blur-sm p-6 sticky top-8">
         <h3 className="text-xl font-semibold  mb-6 flex items-center">
           <Sparkles className="w-5 h-5 mr-2 text-primary" />
@@ -82,7 +82,6 @@ const Cart_orderSummary = ({
           </p>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -44,16 +44,18 @@ const Cart_main = () => {
                   <Cart_promoCode />
                 </Wrapper_animatedCard>
               </div>
-              <Wrapper_animatedCard width={5} variant="rainbow">
-                <Cart_orderSummary
-                  discount={discount}
-                  shipping={shipping}
-                  subtotal={subtotal}
-                  tax={tax}
-                  total={total}
-                />
-              </Wrapper_animatedCard>
-            </div>
+              <div className="lg:col-span-1">
+                <Wrapper_animatedCard width={5} variant="rainbow">
+                  <Cart_orderSummary
+                    discount={discount}
+                    shipping={shipping}
+                    subtotal={subtotal}
+                    tax={tax}
+                    total={total}
+                  />
+                </Wrapper_animatedCard>
+              </div>
+            </div>  
           </div>
         </>
       )}

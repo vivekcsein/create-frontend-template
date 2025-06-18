@@ -1,6 +1,7 @@
 import { cartItem } from "@/types/cart";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import { getLocalStorageItem, putLocalStorageItem, removeLocalStorageItem, setLocalStorageItem } from "@/libs/configs/config.helper";
 
 type PromoCodeStatus = "idle" | "enabled" | "loading" | "applied" | "invalid";
 type orderStatus = "idle" | "loading" | "succeeded" | "failed";
@@ -20,7 +21,7 @@ type CartState = {
 
 const initialState: CartState = {
     currentCartItem: null,
-    localCartItems: [],
+    localCartItems: getLocalStorageItem("localCartItems", []) || [],
     promoCode: {
         currentPromoCode: "",
         promoCodeStatus: "idle"
@@ -30,7 +31,6 @@ const initialState: CartState = {
         orderError: null,
     }
 };
-
 
 export const applyPromoCode = createAsyncThunk(
     "promocode/checkPromoCode",
@@ -78,25 +78,30 @@ const cartSlice = createSlice({
                 }
             } else {
                 state.localCartItems.push({ ...action.payload });
+                setLocalStorageItem("localCartItems", state.localCartItems);
             }
         },
         removeLocalCartItem: (state, action: PayloadAction<string>) => {
             state.localCartItems = state.localCartItems.filter(i => i.uid !== action.payload);
+            setLocalStorageItem("localCartItems", state.localCartItems);
         },
         increaseLocalCartItemQuantity: (state, action: PayloadAction<string>) => {
             const item = state.localCartItems.find(i => i.uid === action.payload);
             if (item && item.quantity < item.maxQuantity) {
                 item.quantity += 1;
             }
+            setLocalStorageItem("localCartItems", state.localCartItems);
         },
         decreaseLocalCartItemQuantity: (state, action: PayloadAction<string>) => {
             const item = state.localCartItems.find(i => i.uid === action.payload);
             if (item && item.quantity > 1) {
                 item.quantity -= 1;
             }
+            setLocalStorageItem("localCartItems", state.localCartItems);
         },
         clearLocalCartItems: (state) => {
             state.localCartItems = [];
+            removeLocalStorageItem("localCartItems");
         },
         setPromoCodeStatus: (state, action: PayloadAction<PromoCodeStatus>) => {
             state.promoCode.promoCodeStatus = action.payload;
