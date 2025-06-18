@@ -10,13 +10,6 @@ const Product_addToCart = () => {
   const currentCartItem = useSelector(
     (state: RootState) => state.cart.currentCartItem
   );
-  const localCartItem = useSelector(
-    (state: RootState) => state.cart.localCartItems
-  );
-  if (localCartItem.length) {
-    console.log(localCartItem[0].quantity);
-  }
-
   const dispatch = useDispatch();
 
   return (
@@ -26,7 +19,6 @@ const Product_addToCart = () => {
         variant={"gradient"}
         onClick={() => {
           if (currentCartItem) {
-            console.log(currentCartItem?.quantity);
             dispatch(addToLocalCartItem(currentCartItem));
           }
         }}

@@ -12,7 +12,7 @@ const Cart_header = () => {
   return (
     <Link href={"/cart"} className="hover:scale-110 relative">
       <ShoppingCart />
-      <div className="absolute -top-2 left-2 rounded-2xl bg-primary w-full text-center text-background">
+      <div className="absolute -top-2 left-2 rounded-2xl bg-primary w-full text-center text-foreground">
         {localCartItems.length}
       </div>
     </Link>

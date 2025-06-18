@@ -101,7 +101,7 @@ type FRNZ_svg_PopupProps = {
 };
 
 const FRNZ_svg_Popup = ({ svgData }: FRNZ_svg_PopupProps) => {
-  const FRNZ_togglePopup = (target: any) => {
+  const FRNZ_togglePopup = (target: EventTarget) => {
     const elem = target as HTMLDivElement;
     const child1 = elem.children[0] as HTMLElement;
     const child2 = elem.children[1] as HTMLElement;

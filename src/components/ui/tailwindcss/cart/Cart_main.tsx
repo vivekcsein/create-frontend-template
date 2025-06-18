@@ -1,6 +1,5 @@
 "use client";
 import { RootState } from "@/libs/redux/store";
-import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Cart_empty from "./Cart_empty";
 import Cart_heading from "./Cart_heading";
@@ -8,33 +7,24 @@ import Cart_itemListing from "./Cart_itemListing";
 import Cart_promoCode from "./Cart_promoCode";
 import Cart_orderSummary from "./Cart_orderSummary";
 import Wrapper_animatedCard from "@/components/wrappers/Wrapper_animatedCard";
+import {
+  selectDiscount,
+  selectShipping,
+  selectSubtotal,
+  selectTax,
+  selectTotal,
+} from "@/libs/redux/features/cartSlice";
 
 const Cart_main = () => {
   const CartItems = useSelector(
     (state: RootState) => state.cart.localCartItems
   );
-  const [promoCode, setPromoCode] = useState("");
-  const [isPromoApplied, setIsPromoApplied] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const applyPromoCode = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      if (promoCode.toLowerCase() === "future20") {
-        setIsPromoApplied(true);
-      }
-      setIsLoading(false);
-    }, 1000);
-  };
-
-  const subtotal = CartItems.reduce(
-    (sum, item) => sum + item.currentPrice * item.quantity,
-    0
-  );
-  const discount = isPromoApplied ? subtotal * 0.2 : 0;
-  const tax = (subtotal - discount) * 0.08;
-  const shipping = subtotal > 1000 ? 0 : 29.99;
-  const total = subtotal - discount + tax + shipping;
+  const subtotal = useSelector(selectSubtotal);
+  const discount = useSelector(selectDiscount);
+  const tax = useSelector(selectTax);
+  const shipping = useSelector(selectShipping);
+  const total = useSelector(selectTotal);
 
   return (
     <div className="min-h-screen">
@@ -50,14 +40,9 @@ const Cart_main = () => {
                 <Wrapper_animatedCard width={5} variant="rainbow">
                   <Cart_itemListing />
                 </Wrapper_animatedCard>
-
-                <Cart_promoCode
-                  isLoading={isLoading}
-                  isPromoApplied={isPromoApplied}
-                  promoCode={promoCode}
-                  applyPromoCode={applyPromoCode}
-                  setPromoCode={setPromoCode}
-                />
+                <Wrapper_animatedCard width={5} variant="gradientVibes">
+                  <Cart_promoCode />
+                </Wrapper_animatedCard>
               </div>
               <Wrapper_animatedCard width={5} variant="rainbow">
                 <Cart_orderSummary
