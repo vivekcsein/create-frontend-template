@@ -9,7 +9,7 @@ import { PasswordInput } from "@/components/ui/shadcn/password-input";
 import { useState } from "react";
 import { Alert, AlertDescription } from "@/components/ui/shadcn/alert";
 import { AlertCircle } from "lucide-react";
-
+import WaveInput from "../Inputs/WaveInput";
 import {
   Form,
   FormControl,
@@ -18,7 +18,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/shadcn/form";
-import WaveInput from "../Inputs/WaveInput";
 
 // Define validation schema using Zod
 const formSchema = z
@@ -48,7 +47,6 @@ const formSchema = z
 const Auth_signup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -73,11 +71,7 @@ const Auth_signup = () => {
     setError(null);
 
     try {
-      // Here you would typically initiate Google OAuth flow
-      console.log("Signing up with Google");
-
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      window.location.href = "/api/auth/redirectToGoogleSignin";
     } catch (_err) {
       setError("Failed to sign up with Google. Please try again.");
     } finally {
